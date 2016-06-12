@@ -1,0 +1,39 @@
+/** Utilities
+**************************************************/
+.clearfix() {
+    zoom:1; // For IE 6/7 (trigger hasLayout)
+
+    &::after {
+        clear:both;
+    }
+
+    &::before, &::after {
+        content:"";
+        display:table;
+    }
+}
+
+.sr-only() {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.img-responsive() {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-rounded() {
+    border-radius: 6px;
+}
+
+.img-circle() {
+    border-radius: 50%;
+}
