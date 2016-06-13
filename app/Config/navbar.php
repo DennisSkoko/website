@@ -20,6 +20,11 @@ return [
                 "url" => Url::make("about"),
             ],
 
+            [
+                "text" => "Services",
+                "url" => Url::make("service")
+            ]
+
         ]
 
     ]

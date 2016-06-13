@@ -10,7 +10,9 @@
     <body>
         <?= View::make("Widgets.navbar", $navbar) ?>
 
-        <?= isset($flash) ? $flash : null ?>
+        <?php if (isset($flash)): ?>
+            <?= View::make("Widgets.flash", $flash) ?>
+        <?php endif; ?>
 
         <?= isset($feature) ? $feature : null ?>
 

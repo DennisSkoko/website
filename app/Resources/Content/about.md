@@ -7,6 +7,7 @@ You can find me on [GitHub](https://github.com/DennisSkoko) where I keep some of
 My main programming language is PHP but I am not afraid to play around with other languages.
 The following languages I know is:
 * PHP
+* MySQL
 * HTML/CSS
 * Less
 * C++

@@ -31,7 +31,9 @@ class Main extends Controller
 
         $this->theme->with([
             "feature" => View::make("Widgets.jumbotron")->with(["content" => $feature]),
-            "main" => View::make("Widgets.Main.standard", compact("weather")),
+            "main" => View::make("Widgets.Main.standard", [
+                "content" => View::make("Widgets.weather", compact("weather")),
+            ]),
         ]);
 
         return $this->theme->render();
@@ -54,6 +56,21 @@ class Main extends Controller
 
 
     /**
+     * Service Page
+     */
+    public function service()
+    {
+        return $this->theme->with([
+            "flash" => [
+                "status" => "info",
+                "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
+                "body" => "This page is still under development.",
+            ]
+        ])->render();
+    }
+
+
+        /**
      * Helper function that will fetch the weather.
      * 
      * @param GeoLocation $loc
@@ -68,6 +85,8 @@ class Main extends Controller
             $weatherCfg["unit"],
             $weatherCfg["lang"]
         );
+
+        $this->services->logger->info("Fetching the weather information");
 
         return $weather->getCurrentWeather($loc);
     }
