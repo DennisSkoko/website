@@ -7,3 +7,6 @@ composer.lock
 
 # Bin
 /bin/
+
+# Sensitive config files
+app/Config/weather.php

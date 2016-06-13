@@ -17,6 +17,11 @@ use Honth\Utilities\Util;
 class Controller
 {
     /**
+     * @var array
+     */
+    protected $settings;
+
+    /**
      * @var Container
      */
     protected $services;
@@ -33,24 +38,15 @@ class Controller
     {
         global $app;
         $this->services = $app->getContainer();
+        $this->settings = $this->services->get("settings");
 
         $this->loadTheme();
     }
 
 
     /**
-     * Receives a view that will be added into a layout.
-     *
-     * @param string|View $view
-     *
-     * @return View
+     * Initializes the theme for the app.
      */
-    protected function getLayoutWith($view)
-    {
-        return $this->theme->with(["main" => $view]);
-    }
-
-
     protected function loadTheme()
     {
         $layout = Fileloader::get(Path::make(["app", "Config"], "layout.php"));

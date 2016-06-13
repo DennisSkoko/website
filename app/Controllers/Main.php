@@ -2,8 +2,10 @@
 
 namespace Controllers;
 
+use Cmfcmf\OpenWeatherMap;
+use DS\Utilities\GeoLocation;
 use DS\Utilities\Markdown;
-use Honth\FileHandler\Fileloader;
+use DS\Weather\Weather;
 use Honth\FileHandler\Path;
 use Honth\Renderer\View;
 
@@ -22,10 +24,17 @@ class Main extends Controller
      */
     public function home()
     {
-        $content = Markdown::file(Path::make(["app", "Resources", "Content"], "welcome.md"));
+        $geoLoc = new GeoLocation(12.83, 55.87);
+        $weather = $this->getCurrentWeather($geoLoc);
 
-        return $this->getLayoutWith(View::make("Widgets.jumbotron")->with(compact("content")))
-            ->render();
+        $feature = Markdown::file(Path::make(["app", "Resources", "Content"], "welcome.md"));
+
+        $this->theme->with([
+            "feature" => View::make("Widgets.jumbotron")->with(["content" => $feature]),
+            "main" => View::make("Widgets.Main.standard", compact("weather")),
+        ]);
+
+        return $this->theme->render();
     }
 
 
@@ -36,6 +45,23 @@ class Main extends Controller
     {
         $content = Markdown::file(Path::make(["app", "Resources", "Content"], "about.md"));
 
-        return $this->getLayoutWith(View::make("Widgets.content")->with(compact("content")))->render();
+        $this->theme->with([
+            "main" => View::make("Widgets.Main.text")->with(compact("content")),
+        ]);
+
+        return $this->theme->render();
+    }
+
+
+    private function getCurrentWeather(GeoLocation $loc)
+    {
+        $weatherCfg = $this->settings["weather"];
+        $weather = new Weather(
+            $weatherCfg["appid"],
+            $weatherCfg["unit"],
+            $weatherCfg["lang"]
+        );
+
+        return $weather->getCurrentWeather($loc);
     }
 }

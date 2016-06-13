@@ -1,0 +1,18 @@
+<?php
+/**
+ * Config for the weather API for http://openweathermap.org/
+ */
+
+return [
+
+    "weather" => [
+
+        "appid" => "<api-key>",
+
+        "unit"  => "celsius",
+
+        "lang"  => "en"
+
+    ],
+
+];

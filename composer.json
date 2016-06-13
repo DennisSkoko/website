@@ -5,7 +5,8 @@
         "honth/log": "^1.0",
         "honth/utilities": "dev-master",
         "honth/renderer": "dev-master",
-        "erusev/parsedown": "^1.6"
+        "erusev/parsedown": "^1.6",
+        "cmfcmf/openweathermap-php-api": "^2.1"
     },
     "autoload": {
         "psr-4": {

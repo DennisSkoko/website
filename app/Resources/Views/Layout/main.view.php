@@ -10,7 +10,11 @@
     <body>
         <?= View::make("Widgets.navbar", $navbar) ?>
 
-        <?= $main ?>
+        <?= isset($flash) ? $flash : null ?>
+
+        <?= isset($feature) ? $feature : null ?>
+
+        <?= isset($main) ? $main : null ?>
 
         <?= View::make("Util.javascript", compact("javascript")) ?>
     </body>
