@@ -53,6 +53,13 @@ class Main extends Controller
     }
 
 
+    /**
+     * Helper function that will fetch the weather.
+     * 
+     * @param GeoLocation $loc
+     *
+     * @return OpenWeatherMap\CurrentWeather
+     */
     private function getCurrentWeather(GeoLocation $loc)
     {
         $weatherCfg = $this->settings["weather"];
