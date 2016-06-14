@@ -7,7 +7,7 @@ use DS\IP\IpInfo;
 /**
  * Class GeoLocation
  *
- * Description
+ * A class that represents a location with longitude and latitude.
  *
  * @package DS\Utilities
  * @author  Dennis Skoko
