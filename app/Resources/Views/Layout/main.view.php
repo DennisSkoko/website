@@ -18,6 +18,8 @@
 
         <?= isset($main) ? $main : null ?>
 
+        <?= View::make("widgets.footer") ?>
+
         <?= View::make("util.javascript", compact("javascript")) ?>
     </body>
 </html>

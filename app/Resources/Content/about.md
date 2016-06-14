@@ -1,4 +1,4 @@
-## Hello
+## About me
 My name is Dennis Skoko and I'm a student at [Blekinge Institute of Technology](https://www.bth.se/eng/)
 and studying Web Programming. I like to spent time on my personal projects like frameworks and modules
 that aids me and maybe someone else on their projects.
@@ -16,3 +16,14 @@ The following languages I know is:
 While these are languages I know a little but still learning:
 * Python
 * JavaScript/jQuery
+
+## Website
+This website was developed by me and been using different API to get this running.
+The website is up on [GitHub](https://github.com/DennisSkoko/website) if you are interested on taking a look.
+
+The following API I've been using to aid the website:
+* [Slim Framework](http://www.slimframework.com/)
+* [ipinfo.io](https://ipinfo.io/)
+* [PHP Weather API](https://github.com/cmfcmf/OpenWeatherMap-PHP-Api) from [OpenWeatherMap](http://openweathermap.org/)
+* [Bootstrap](http://getbootstrap.com/)
+* [jQuery](https://jquery.com/)
