@@ -56,22 +56,6 @@ class Main extends Controller
 
 
     /**
-     * Service Page
-     */
-    public function service()
-    {
-        return $this->theme->with([
-            "title" => "Services",
-            "flash" => [
-                "status" => "info",
-                "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
-                "body" => "This page is still under development.",
-            ]
-        ])->render();
-    }
-
-
-        /**
      * Helper function that will fetch the weather.
      * 
      * @param GeoLocation $loc
