@@ -2,7 +2,7 @@
 
 return [
 
-    "view" => "Layout.main",
+    "view" => "layout.main",
 
     "name" => "Dennis Skoko",
 

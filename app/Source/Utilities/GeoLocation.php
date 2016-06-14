@@ -47,8 +47,12 @@ class GeoLocation
      */
     public function getFromIp($ip)
     {
-        $location = IpInfo::getInfoFrom($ip)["loc"];
-        $this->setLocation($location);
+        $info = IpInfo::getInfoFrom($ip);
+        if (isset($info["loc"])) {
+            $this->setLocation($info["loc"]);
+        } else {
+            $this->setLocation("0,0");
+        }
 
         return $this;
     }

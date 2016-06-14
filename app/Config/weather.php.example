@@ -9,7 +9,7 @@ return [
 
         "appid" => "<api-key>",
 
-        "unit"  => "celsius",
+        "unit"  => "imperial", // Or 'metric' for celsius
 
         "lang"  => "en"
 

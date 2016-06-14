@@ -25,15 +25,14 @@ class Main extends Controller
     public function home()
     {
         $geoLoc = new GeoLocation(12.83, 55.87);
+        //$geoLoc->getFromIp($_SERVER["REMOTE_ADDR"]);
         $weather = $this->getCurrentWeather($geoLoc);
 
         $feature = Markdown::file(Path::make(["app", "Resources", "Content"], "welcome.md"));
 
         $this->theme->with([
-            "feature" => View::make("Widgets.jumbotron")->with(["content" => $feature]),
-            "main" => View::make("Widgets.Main.standard", [
-                "content" => View::make("Widgets.weather", compact("weather")),
-            ]),
+            "feature" => View::make("widgets.jumbotron")->with(["content" => $feature]),
+            "main" => View::make("pages.home", compact("weather")),
         ]);
 
         return $this->theme->render();
@@ -48,7 +47,8 @@ class Main extends Controller
         $content = Markdown::file(Path::make(["app", "Resources", "Content"], "about.md"));
 
         $this->theme->with([
-            "main" => View::make("Widgets.Main.text")->with(compact("content")),
+            "title" => "About",
+            "main" => View::make("widgets.Main.text")->with(compact("content")),
         ]);
 
         return $this->theme->render();
@@ -61,6 +61,7 @@ class Main extends Controller
     public function service()
     {
         return $this->theme->with([
+            "title" => "Services",
             "flash" => [
                 "status" => "info",
                 "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
