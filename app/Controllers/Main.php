@@ -56,6 +56,22 @@ class Main extends Controller
 
 
     /**
+     * Contact Page
+     */
+    public function contact()
+    {
+        return $this->theme->with([
+            "title" => "Contact",
+            "flash" => [
+                "status" => "info",
+                "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
+                "body" => "This page is still under development.",
+            ]
+        ])->render();
+    }
+
+
+    /**
      * Helper function that will fetch the weather.
      * 
      * @param GeoLocation $loc

@@ -22,11 +22,16 @@ return [
 
             [
                 "text" => "Services",
-                "url" => Url::make("service")
-            ]
+                "url" => Url::make("service"),
+            ],
 
-        ]
+            [
+                "text" => "Contact",
+                "url" => Url::make("contact"),
+            ],
 
-    ]
+        ],
+
+    ],
 
 ];
