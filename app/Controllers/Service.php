@@ -31,7 +31,7 @@ class Service extends Controller
      */
     public function weather()
     {
-        return $this->dev();
+        return $this->dev()->render();
     }
 
 
@@ -40,7 +40,9 @@ class Service extends Controller
      */
     public function ipinfo()
     {
-        return $this->dev();
+        return $this->theme->with([
+            "main" => View::make(""),
+        ])->render();
     }
 
 
@@ -49,10 +51,13 @@ class Service extends Controller
      */
     public function calendar()
     {
-        return $this->dev();
+        return $this->dev()->render();
     }
 
 
+    /**
+     * @return View
+     */
     private function dev()
     {
         return $this->theme->with([
@@ -61,6 +66,6 @@ class Service extends Controller
                 "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
                 "body" => "This page is under development."
             ]
-        ])->render();
+        ]);
     }
 }
