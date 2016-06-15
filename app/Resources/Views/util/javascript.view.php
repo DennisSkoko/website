@@ -1,3 +1,3 @@
 <?php foreach ($javascript as $script): ?>
-    <script src="<?= $script ?>"></script>
+    <script src="<?= \DS\Utilities\Url::make($script) ?>"></script>
 <?php endforeach; ?>
