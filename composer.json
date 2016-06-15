@@ -5,6 +5,7 @@
         "honth/log": "^1.0",
         "honth/utilities": "dev-master",
         "honth/renderer": "dev-master",
+        "honth/validation": "^1.0",
         "erusev/parsedown": "^1.6",
         "cmfcmf/openweathermap-php-api": "^2.1"
     },

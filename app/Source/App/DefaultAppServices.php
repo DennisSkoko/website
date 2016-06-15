@@ -2,6 +2,7 @@
 
 namespace DS\App;
 
+use DS\Storage\Session;
 use Honth\FileHandler\Path;
 use Honth\Log\Logger;
 use Interop\Container\ContainerInterface;
@@ -20,7 +21,10 @@ class DefaultAppServices
     /**
      * Registers the default values.
      *
-     * - Logger
+     * - Logger  logger
+     * - Session session
+     *
+     * @param ContainerInterface $container
      */
     public function register(ContainerInterface $container)
     {
@@ -31,6 +35,12 @@ class DefaultAppServices
                     "directory" => Path::make(["bin", "log"]),
                     "minLevel" => LogLevel::DEBUG,
                 ]);
+            };
+        }
+
+        if (!isset($container["session"])) {
+            $container["session"] = function () {
+                return new Session();
             };
         }
     }

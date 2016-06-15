@@ -5,9 +5,12 @@ namespace Controllers;
 use Cmfcmf\OpenWeatherMap;
 use DS\Utilities\GeoLocation;
 use DS\Utilities\Markdown;
+use DS\Utilities\Url;
 use DS\Weather\Weather;
 use Honth\FileHandler\Path;
 use Honth\Renderer\View;
+use Honth\Validation\Validator;
+use Slim\Http\Request;
 
 /**
  * Class Main
@@ -62,18 +65,69 @@ class Main extends Controller
     {
         return $this->theme->with([
             "title" => "Contact",
-            "flash" => [
-                "status" => "info",
-                "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
-                "body" => "This page is still under development.",
-            ]
+            "main" => View::make("widgets.contact-form"),
         ])->render();
     }
 
 
     /**
+     * Process for Email from Contact
+     *
+     * @param Request $request
+     */
+    public function processEmail(Request $request)
+    {
+        $post = $request->getParsedBody();
+
+        // Redirect when an invalid request has been made.
+        if (!isset($post["name"], $post["email"], $post["subject"], $post["message"])) {
+            $this->services->logger->info(
+                "Someone tried to enter the Main::processEmail() with the necessary post values"
+            );
+            header("Location:" . Url::make("/"));
+            exit;
+        }
+
+        $validator = new Validator();
+        $validator->check($post, [
+            "name" => [
+                "required" => true,
+                "minlength" => 5,
+            ],
+
+            "email" => [
+                "required" => true,
+                "email" => true,
+            ],
+
+            "subject" => [
+                "required" => true,
+                "minlength" => 5,
+            ],
+
+            "message" => [
+                "required" => true,
+                "minlength" => 10,
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            $this->services->session->push("flash", [
+                "status" => "warning",
+                "title" => "Couldn't fulfil the request because it contained invalid data",
+                "body" => $this->parseToString($validator->errorInfo()),
+            ]);
+            header("Location:" . Url::make("contact"));
+            exit;
+        }
+
+        var_dump(true);
+    }
+
+
+    /**
      * Helper function that will fetch the weather.
-     * 
+     *
      * @param GeoLocation $loc
      *
      * @return OpenWeatherMap\CurrentWeather
@@ -87,8 +141,27 @@ class Main extends Controller
             $weatherCfg["lang"]
         );
 
-        $this->services->logger->info("Fetching the weather information");
-
         return $weather->getCurrentWeather($loc);
+    }
+
+
+    /**
+     * Will parse the error from validator to a readable string.
+     *
+     * @param array $errorInfo
+     *
+     * @return string
+     */
+    private function parseToString(array $errorInfo)
+    {
+        $result = "";
+
+        foreach ($errorInfo as $field) {
+            foreach ($field as $error) {
+                $result .= $error . ".<br>";
+            }
+        }
+
+        return $result;
     }
 }

@@ -41,6 +41,7 @@ class Controller
         $this->settings = $this->services->get("settings");
 
         $this->loadTheme();
+        $this->loadFlashMsg();
     }
 
 
@@ -55,5 +56,17 @@ class Controller
 
         $layoutView = Util::pull($layout, "view");
         $this->theme = View::make($layoutView)->with($layout);
+    }
+
+
+    /**
+     * Loads a flash message from the session, removes it from the session and displays it
+     */
+    protected function loadFlashMsg()
+    {
+        if ($this->services->session->exists("flash")) {
+            $flash = $this->services->session->pull("flash");
+            $this->theme->with(compact("flash"));
+        }
     }
 }

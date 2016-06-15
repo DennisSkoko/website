@@ -2,12 +2,14 @@
 
 namespace DS\App;
 
+use DS\Storage\Session;
 use Honth\Log\Logger;
 
 /**
  * {@inheritdoc}
  *
- * @property Logger logger
+ * @property Logger  logger
+ * @property Session session
  */
 class Container extends \Slim\Container
 {
