@@ -21,9 +21,10 @@ While these are languages I know a little but still learning:
 This website was developed by me and been using different API to get this running.
 The website is up on [GitHub](https://github.com/DennisSkoko/website) if you are interested on taking a look.
 
-The following API I've been using to aid the website:
+The following API:s I've been using:
 * [Slim Framework](http://www.slimframework.com/)
 * [ipinfo.io](https://ipinfo.io/)
 * [PHP Weather API](https://github.com/cmfcmf/OpenWeatherMap-PHP-Api) from [OpenWeatherMap](http://openweathermap.org/)
+* [Parsedown](https://github.com/erusev/parsedown)
 * [Bootstrap](http://getbootstrap.com/)
 * [jQuery](https://jquery.com/)
