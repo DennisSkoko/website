@@ -13,8 +13,10 @@
 
         <div class="collapse navbar-collapse" id="collapse-menu">
             <ul class="nav navbar-nav navbar-right">
-                <?php foreach ($links as $link): ?>
-                    <li><a href="<?= $link["url"] ?>"><?= $link["text"] ?></a></li>
+                <?php foreach ($links as $link):
+                    $selected = $link["url"] == $_SERVER["REQUEST_URI"] ? "active" : "";
+                    ?>
+                    <li class="<?= $selected ?>"><a href="<?= $link["url"] ?>"><?= $link["text"] ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>

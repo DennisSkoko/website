@@ -13,7 +13,7 @@
             <li class="col-sm-4">
                 <a href="<?= Url::make("service/ipinfo") ?>">
                     <span class="glyphicon glyphicon-info-sign"></span>
-                    <h3>IP</h3>
+                    <h3>IP Info</h3>
                 </a>
             </li>
 

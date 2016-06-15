@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use DS\IP\IpInfo;
+use DS\Utilities\GeoLocation;
 use Honth\Renderer\View;
 
 /**
@@ -40,8 +42,13 @@ class Service extends Controller
      */
     public function ipinfo()
     {
+        $ipinfo = IpInfo::getInfoFrom("85.230.104.75");
+
         return $this->theme->with([
-            "main" => View::make(""),
+            "title" => "IP Info",
+            "main" => View::make("widgets.main.standard", [
+                "content" => View::make("widgets.ipinfo", compact("ipinfo")),
+            ]),
         ])->render();
     }
 

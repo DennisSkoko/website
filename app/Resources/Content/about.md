@@ -18,7 +18,7 @@ While these are languages I know a little but still learning:
 * JavaScript/jQuery
 
 ## Website
-This website was developed by me and been using different API to get this running.
+This website was developed by me and been using different API:s to get this running.
 The website is up on [GitHub](https://github.com/DennisSkoko/website) if you are interested on taking a look.
 
 The following API:s I've been using:

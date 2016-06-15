@@ -3,7 +3,8 @@
 <html lang="<?= $lang ?>">
     <head>
         <meta charset="<?= $charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= View::make("util.meta", compact("meta")) ?>
+
         <title><?= isset($title) ? $title . " - " : "" ?><?= $name ?></title>
         <?= View::make("util.stylesheets", compact("stylesheets")) ?>
     </head>

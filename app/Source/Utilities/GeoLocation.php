@@ -140,4 +140,18 @@ class GeoLocation
     {
         return $this->getLocation();
     }
+
+
+    /**
+     * Creates an instance of a Geo Location
+     *
+     * @param float $longitude
+     * @param float $latitude
+     *
+     * @return GeoLocation
+     */
+    public static function make($longitude = null, $latitude = null)
+    {
+        return new GeoLocation($longitude, $latitude);
+    }
 }
