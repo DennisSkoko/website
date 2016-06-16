@@ -23,13 +23,13 @@ return [
     "lang" => "en",
 
     "stylesheets" => [
-        "style/css/bootstrap.css",
-        "style/css/bootstrap-theme.css",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css",
     ],
 
     "javascript" => [
-        "js/jquery.js",
-        "js/bootstrap.js",
+        "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js",
         //"js/less.js",
     ],
 

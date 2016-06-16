@@ -28,6 +28,8 @@ class Main extends Controller
      */
     public function home()
     {
+        $this->theme->set("stylesheets", ["style/css/weather.css"]);
+
         $geoLoc = new GeoLocation();
         $geoLoc->setLocation(IpInfo::fetch("loc")->from($_SERVER["REMOTE_ADDR"])->getLoc());
         $weather = $this->getCurrentWeather($geoLoc);
