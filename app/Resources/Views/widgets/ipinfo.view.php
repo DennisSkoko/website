@@ -7,7 +7,7 @@
     >
 
     <h2>
-        <?= $ipinfo->getCity() !== null ? $ipinfo->getCity() : "City not available" ?><?= $ipinfo->getCountry() !== null ? ", " . $ipinfo->getCountry() : null ?>
+        <?= $ipinfo->getCity() !== "" ? $ipinfo->getCity() : "City not available" ?><?= $ipinfo->getCountry() !== null ? ", " . $ipinfo->getCountry() : null ?>
     </h2>
 
     <?php if ($ipinfo->getOrg() !== null): ?>

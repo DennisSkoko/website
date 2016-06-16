@@ -29,7 +29,7 @@ class Main extends Controller
     public function home()
     {
         $geoLoc = new GeoLocation();
-        $geoLoc->setLocation(IpInfo::fetch("loc")->from("85.230.104.75")->getLoc());
+        $geoLoc->setLocation(IpInfo::fetch("loc")->from($_SERVER["REMOTE_ADDR"])->getLoc());
         $weather = $this->getCurrentWeather($geoLoc);
 
         $feature = Markdown::file(Path::make(["app", "Resources", "Content"], "welcome.md"));
@@ -179,6 +179,7 @@ class Main extends Controller
         if (is_string($result)) {
             $this->services->logger->notice("Failed to fetch the weather information", [
                 "errorMessage" => $result,
+                "ip" => $_SERVER["REMOTE_ADDR"],
                 "geoLoc" => $loc->getLocation(),
             ]);
             $result = null;
