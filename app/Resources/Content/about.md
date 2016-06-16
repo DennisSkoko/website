@@ -26,5 +26,6 @@ The following API:s I've been using:
 * [ipinfo.io](https://ipinfo.io/)
 * [PHP Weather API](https://github.com/cmfcmf/OpenWeatherMap-PHP-Api) from [OpenWeatherMap](http://openweathermap.org/)
 * [Parsedown](https://github.com/erusev/parsedown)
+* [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 * [Bootstrap](http://getbootstrap.com/)
 * [jQuery](https://jquery.com/)

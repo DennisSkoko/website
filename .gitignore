@@ -10,3 +10,4 @@ composer.lock
 
 # Sensitive config files
 app/Config/weather.php
+app/Config/mail.php

@@ -63,9 +63,11 @@ class Main extends Controller
      */
     public function contact()
     {
+        $data = $this->services->session->pull("formData", []);
+
         return $this->theme->with([
             "title" => "Contact",
-            "main" => View::make("widgets.contact-form"),
+            "main" => View::make("widgets.contact-form", compact("data")),
         ])->render();
     }
 
@@ -87,6 +89,14 @@ class Main extends Controller
             header("Location:" . Url::make("/"));
             exit;
         }
+
+        // Filter the values
+        $post = [
+            "name" => htmlspecialchars($post["name"]),
+            "email" => htmlspecialchars($post["email"]),
+            "subject" => htmlspecialchars($post["subject"]),
+            "message" => htmlspecialchars($post["message"]),
+        ];
 
         $validator = new Validator();
         $validator->check($post, [
@@ -117,10 +127,14 @@ class Main extends Controller
                 "title" => "Couldn't fulfil the request because it contained invalid data",
                 "body" => $this->parseToString($validator->errorInfo()),
             ]);
+
+            // Save the input
+            $this->services->session->push("formData", $post);
             header("Location:" . Url::make("contact"));
             exit;
         }
 
+        $mailer = new \PHPMailer;
         var_dump(true);
     }
 
