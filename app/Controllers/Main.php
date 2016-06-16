@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Cmfcmf\OpenWeatherMap;
+use DS\IP\IP;
 use DS\IP\IpInfo;
 use DS\Utilities\GeoLocation;
 use DS\Utilities\Markdown;
@@ -28,6 +29,7 @@ class Main extends Controller
      */
     public function home()
     {
+        $this->services->logger->info("The API IP address: ", ["ip" => IP::get()]);
 
         // For weather widget
         $this->theme->set("stylesheets", ["style/css/weather.css"]);
