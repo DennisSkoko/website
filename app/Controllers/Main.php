@@ -52,7 +52,7 @@ class Main extends Controller
 
         $this->theme->with([
             "title" => "About",
-            "main" => View::make("widgets.Main.text")->with(compact("content")),
+            "main" => View::make("widgets.main.text")->with(compact("content")),
         ]);
 
         return $this->theme->render();
