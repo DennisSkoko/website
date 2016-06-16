@@ -30,3 +30,4 @@ The following API:s I've been using:
 * [Less](http://lesscss.org/)
 * [Bootstrap](http://getbootstrap.com/)
 * [jQuery](https://jquery.com/)
+* [Weather icons](https://erikflowers.github.io/weather-icons/)
