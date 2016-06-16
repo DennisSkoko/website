@@ -17,49 +17,29 @@ class GeoLocation
     /**
      * @var float
      */
-    protected $longitude;
+    protected $latitude;
 
     /**
      * @var float
      */
-    protected $latitude;
+    protected $longitude;
 
 
     /**
      * GeoLocation constructor.
      *
-     * @param float $longitude
      * @param float $latitude
+     * @param float $longitude
      */
-    public function __construct($longitude = null, $latitude = null)
+    public function __construct($latitude = null, $longitude = null)
     {
-        $this->setLongitude($longitude);
         $this->setLatitude($latitude);
+        $this->setLongitude($longitude);
     }
 
 
     /**
-     * Fetches the location from an ip address.
-     *
-     * @param string $ip
-     *
-     * @return $this
-     */
-    public function getFromIp($ip)
-    {
-        $info = IpInfo::getInfoFrom($ip);
-        if (isset($info["loc"])) {
-            $this->setLocation($info["loc"]);
-        } else {
-            $this->setLocation("0,0");
-        }
-
-        return $this;
-    }
-
-
-    /**
-     * Set both the longitude and latitude, separated with a comma.
+     * Set both the latitude and longitude, separated with a comma.
      *
      * @param string $location
      *
@@ -69,8 +49,8 @@ class GeoLocation
     {
         $location = explode(",", $location);
 
-        $this->setLongitude($location[0]);
-        $this->setLatitude($location[1]);
+        $this->setLatitude($location[0]);
+        $this->setLongitude($location[1]);
 
         return $this;
     }
@@ -83,29 +63,7 @@ class GeoLocation
      */
     public function getLocation()
     {
-        return $this->longitude . "," . $this->latitude;
-    }
-
-
-    /**
-     * @return float
-     */
-    public function getLongitude()
-    {
-        return $this->longitude;
-    }
-
-
-    /**
-     * @param float $longitude
-     *
-     * @return $this
-     */
-    public function setLongitude($longitude)
-    {
-        $this->longitude = $longitude;
-
-        return $this;
+        return $this->latitude . "," . $this->longitude;
     }
 
 
@@ -126,6 +84,28 @@ class GeoLocation
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
+
+        return $this;
+    }
+
+
+    /**
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+
+    /**
+     * @param float $longitude
+     *
+     * @return $this
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }

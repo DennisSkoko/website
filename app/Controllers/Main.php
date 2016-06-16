@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Cmfcmf\OpenWeatherMap;
+use DS\IP\IpInfo;
 use DS\Utilities\GeoLocation;
 use DS\Utilities\Markdown;
 use DS\Utilities\Url;
@@ -27,8 +28,9 @@ class Main extends Controller
      */
     public function home()
     {
-        $geoLoc = new GeoLocation(12.83, 55.87);
-        //$geoLoc->getFromIp($_SERVER["REMOTE_ADDR"]);
+        //$geoLoc = new GeoLocation(55.8708, 12.8302);
+        $geoLoc = new GeoLocation();
+        $geoLoc->setLocation(IpInfo::fetch("loc")->from("85.230.104.75")->getLoc());
         $weather = $this->getCurrentWeather($geoLoc);
 
         $feature = Markdown::file(Path::make(["app", "Resources", "Content"], "welcome.md"));
@@ -133,7 +135,27 @@ class Main extends Controller
         }
 
         $post["messageHTML"] = Markdown::text($post["message"]);
-        var_dump($this->sendMail($post));
+
+        if ($this->sendMail($post)) {
+            $status = [
+                "status" => "success",
+                "title" => "Success",
+                "body" => "The email was successfully sent.",
+            ];
+        } else {
+            $this->services->logger->alert("Tried to send email but failed.", $post);
+            $status = [
+                "status" => "danger",
+                "title" => "The request couldn't be completed",
+                "body" => "I'm sorry about but an unexpected error occurred and the request has been aborted.",
+                "footer" => "If you want to report this problem to me, that would be appreciated.<br>"
+                    . "<a href='mailto:{$this->settings["mail"]["maintainer"]}'>{$this->settings["mail"]["maintainer"]}</a>",
+            ];
+        }
+
+        $this->services->session->push("flash", $status);
+        header("Location:" . Url::make("contact"));
+        exit;
     }
 
 
@@ -153,7 +175,17 @@ class Main extends Controller
             $weatherCfg["lang"]
         );
 
-        return $weather->getCurrentWeather($loc);
+        $result = $weather->getCurrentWeather($loc);
+
+        if (is_string($result)) {
+            $this->services->logger->notice("Failed to fetch the weather information", [
+                "errorMessage" => $result,
+                "geoLoc" => $loc->getLocation(),
+            ]);
+            $result = null;
+        }
+
+        return $result;
     }
 
 
@@ -190,12 +222,9 @@ class Main extends Controller
         $settings = $this->settings["mail"];
         $mailer = new \PHPMailer;
 
-        // Debug
-        echo "<pre>";
-        $mailer->SMTPDebug = 2;
-
         $mailer->isSMTP();
         $mailer->isHTML();
+        $mailer->CharSet = "UTF-8";
 
         $mailer->SMTPAuth = true;
         $mailer->Host = $settings["host"]["name"];
@@ -206,11 +235,20 @@ class Main extends Controller
         $mailer->Password = $settings["pass"];
 
         $mailer->setFrom($settings["email"], $settings["name"]);
-        $mailer->addAddress($contents["email"], $contents["name"]);
+
+        $mailer->addAddress(
+            $settings["receiver"]["email"],
+            $settings["receiver"]["name"]
+        );
+
+        // Add the senders information in the email.
+        $footer = "---------------------------\n"
+            . "From: " . $contents["name"] . "\n\n"
+            . "Email: " . $contents["email"] . "\n";
 
         $mailer->Subject = $contents["subject"];
-        $mailer->Body = $contents["messageHTML"];
-        $mailer->AltBody = $contents["message"];
+        $mailer->Body = $contents["messageHTML"] . Markdown::text($footer);
+        $mailer->AltBody = $contents["message"] . $footer;
 
         return $mailer->send();
     }

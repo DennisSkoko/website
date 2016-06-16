@@ -47,17 +47,19 @@ class Weather
 
 
     /**
-     * @return OpenWeatherMap\CurrentWeather
+     * @param GeoLocation $location
+     *
+     * @return OpenWeatherMap\CurrentWeather|string - Either the weather or the error message.
      */
     public function getCurrentWeather(GeoLocation $location)
     {
         try {
             return $this->owm->getWeather([
-                "lon" => $location->getLongitude(),
                 "lat" => $location->getLatitude(),
+                "lon" => $location->getLongitude(),
             ], $this->unit, $this->lang);
         } catch (\Exception $e) {
-            return null;
+            return $e->getMessage();
         }
     }
 }

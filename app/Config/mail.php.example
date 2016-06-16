@@ -27,6 +27,16 @@ return [
             "secure" => "tls",
         ],
 
+        // The person that will receive the email
+        "receiver" => [
+            "email" => "<EMAIL>",
+            "name" => "<NAME>",
+        ],
+
+        // The email address that maintains the server.
+        // If a problem occurs then it will display email address to the user.
+        "maintainer" => "<EMAIL>"
+
     ],
 
 ];

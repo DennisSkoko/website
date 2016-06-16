@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            <label for="message">Message</label>
+            <label for="message">Message <small>Supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a></small></label>
             <textarea class="form-control" id="message" name="message" value="<?= isset($data["message"]) ? $data["message"] : "" ?>" style="resize: vertical; min-height: 200px"></textarea>
         </div>
 
