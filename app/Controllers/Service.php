@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use DS\IP\IpInfo;
-use DS\Utilities\GeoLocation;
 use Honth\Renderer\View;
 
 /**
@@ -18,8 +17,7 @@ class Service extends Controller
 {
     public function all()
     {
-        $this->theme->set("stylesheets", ["style/less/services.less"]);
-        $this->theme->set("javascript", ["js/less.js"]);
+        $this->theme->set("stylesheets", ["style/css/services.css"]);
 
         return $this->theme->with([
             "title" => "Services",

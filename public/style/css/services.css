@@ -1,0 +1,24 @@
+.services-all {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+.services-all li {
+  text-align: center;
+  padding: 10px 30px;
+}
+.services-all li a {
+  display: block;
+  color: inherit;
+  padding: 10px 0;
+}
+.services-all li a:hover {
+  text-decoration: none;
+  color: steelblue;
+}
+.services-all li a span {
+  font-size: 5em;
+}
+.services-all li a h3 {
+  margin: 0;
+}
