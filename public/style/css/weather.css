@@ -1,0 +1,11 @@
+.weather {
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .weather {
+        text-align: left;
+    }
+    .aside {
+        text-align: right;
+    }
+}
