@@ -27,5 +27,6 @@ The following API:s I've been using:
 * [PHP Weather API](https://github.com/cmfcmf/OpenWeatherMap-PHP-Api) from [OpenWeatherMap](http://openweathermap.org/)
 * [Parsedown](https://github.com/erusev/parsedown)
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+* [Less](http://lesscss.org/)
 * [Bootstrap](http://getbootstrap.com/)
 * [jQuery](https://jquery.com/)
