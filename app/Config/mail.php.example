@@ -1,0 +1,32 @@
+<?php
+/**
+ * Credentials for the PHPMailer when sending emails.
+ *
+ * Check which host your are using.
+ *
+ * For Google SMTP Server
+ * @link https://support.google.com/a/answer/176600?hl=sv
+ *
+ * Or for Windows Outlook SMTP Server
+ * @link http://email.about.com/od/Outlook.com/f/What-Are-The-Outlook-com-Smtp-Server-Settings.htm
+ */
+
+return [
+
+    "mail" => [
+
+        "name" => "<NAME>",
+
+        "email" => "<EMAIL>",
+
+        "pass" => "<PASS>",
+
+        "host" => [
+            "name" => "smtp-mail.outlook.com",
+            "port" => 587,
+            "secure" => "tls",
+        ],
+
+    ],
+
+];

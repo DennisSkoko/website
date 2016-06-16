@@ -102,7 +102,6 @@ class Main extends Controller
         $validator->check($post, [
             "name" => [
                 "required" => true,
-                "minlength" => 5,
             ],
 
             "email" => [
@@ -112,7 +111,6 @@ class Main extends Controller
 
             "subject" => [
                 "required" => true,
-                "minlength" => 5,
             ],
 
             "message" => [
@@ -134,8 +132,8 @@ class Main extends Controller
             exit;
         }
 
-        $mailer = new \PHPMailer;
-        var_dump(true);
+        $post["messageHTML"] = Markdown::text($post["message"]);
+        var_dump($this->sendMail($post));
     }
 
 
@@ -177,5 +175,43 @@ class Main extends Controller
         }
 
         return $result;
+    }
+
+
+    /**
+     * Sends an email
+     *
+     * @param array $contents
+     *
+     * @return bool
+     */
+    private function sendMail(array $contents)
+    {
+        $settings = $this->settings["mail"];
+        $mailer = new \PHPMailer;
+
+        // Debug
+        echo "<pre>";
+        $mailer->SMTPDebug = 2;
+
+        $mailer->isSMTP();
+        $mailer->isHTML();
+
+        $mailer->SMTPAuth = true;
+        $mailer->Host = $settings["host"]["name"];
+        $mailer->Port = $settings["host"]["port"];
+        $mailer->SMTPSecure = $settings["host"]["secure"];
+
+        $mailer->Username = $settings["email"];
+        $mailer->Password = $settings["pass"];
+
+        $mailer->setFrom($settings["email"], $settings["name"]);
+        $mailer->addAddress($contents["email"], $contents["name"]);
+
+        $mailer->Subject = $contents["subject"];
+        $mailer->Body = $contents["messageHTML"];
+        $mailer->AltBody = $contents["message"];
+
+        return $mailer->send();
     }
 }
