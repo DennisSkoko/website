@@ -6,7 +6,7 @@
                 <img src="<?= $weather->weather->getIconUrl() ?>" alt="<?= $weather->weather->description ?>"><span><?= $weather->weather->description ?></span>
             </div>
             <div class="col-sm-5 text-right">
-                <p class="h3"><?= $weather->temperature->max->getFormatted() ?></p>
+                <p class="h3"><?= $weather->temperature->now->getFormatted() ?></p>
                 <p>Humidity: <?= $weather->humidity->getFormatted() ?></p>
                 <p>Wind: <?= $weather->wind->speed->getFormatted() ?></p>
             </div>
