@@ -59,6 +59,11 @@ class IpInfo
      */
     protected $postal;
 
+    /**
+     * var int
+     */
+    protected $bogon;
+
 
     /**
      * IpInfo constructor.
@@ -145,6 +150,15 @@ class IpInfo
     public function getPostal()
     {
         return $this->postal;
+    }
+
+
+    /**
+     * $return bool
+     */
+    public function isBogon()
+    {
+        return $this->bogon === 1;
     }
 
 
