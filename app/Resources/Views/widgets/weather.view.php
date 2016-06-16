@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-7">
                 <h3><?= $weather->city->name ?>, <?= $weather->city->country ?></h3>
-                <img src="<?= $weather->weather->getIconUrl() ?>"><span><?= $weather->weather->description ?></span>
+                <img src="<?= $weather->weather->getIconUrl() ?>" alt="<?= $weather->weather->description ?>"><span><?= $weather->weather->description ?></span>
             </div>
             <div class="col-sm-5 text-right">
                 <p class="h3"><?= $weather->temperature->max->getFormatted() ?></p>
