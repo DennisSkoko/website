@@ -28,7 +28,6 @@ class Main extends Controller
      */
     public function home()
     {
-        //$geoLoc = new GeoLocation(55.8708, 12.8302);
         $geoLoc = new GeoLocation();
         $geoLoc->setLocation(IpInfo::fetch("loc")->from("85.230.104.75")->getLoc());
         $weather = $this->getCurrentWeather($geoLoc);

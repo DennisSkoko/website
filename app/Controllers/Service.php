@@ -42,7 +42,7 @@ class Service extends Controller
      */
     public function ipinfo()
     {
-        $ipinfo = IpInfo::getInfoFrom("85.230.104.75");
+        $ipinfo = IpInfo::all()->from("85.230.104.75");
 
         return $this->theme->with([
             "title" => "IP Info",
