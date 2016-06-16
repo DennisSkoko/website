@@ -28,6 +28,7 @@ class Main extends Controller
      */
     public function home()
     {
+        // For weather widget
         $this->theme->set("stylesheets", ["style/css/weather.css"]);
 
         $geoLoc = new GeoLocation();

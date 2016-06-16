@@ -1,5 +1,59 @@
+@import "weather-icons.css";
+
+/** Converts OpenWeatherMap icons to Weather-icons
+**************************************************/
+.wi-01d:before {
+    content: "\f00d";
+}
+.wi-01n:before {
+    content: "\f02e";
+}
+.wi-02d:before {
+    content: "\f00c";
+}
+.wi-02n:before {
+    content: "\f081";
+}
+.wi-03d:before {
+    content: "\f002";
+}
+.wi-03n:before {
+    content: "\f086";
+}
+.wi-04d:before,
+.wi-04n:before {
+    content: "\f013";
+}
+.wi-09d:before,
+.wi-09n:before {
+    content: "\f01a";
+}
+.wi-10d:before {
+    content: "\f009";
+}
+.wi-10n:before {
+    content: "\f026";
+}
+.wi-11d:before,
+.wi-11n:before {
+    content: "\f01d";
+}
+.wi-13d:before {
+    content: "\f00a";
+}
+.wi-13n:before {
+    content: "\f02a";
+}
+.wi-50d:before,
+.wi-50n:before {
+    content: "\f014";
+}
+
 .weather {
     text-align: center;
+}
+.weather .wi {
+    font-size: 3em;
 }
 @media (min-width: 768px) {
     .weather {
