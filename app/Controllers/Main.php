@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use Cmfcmf\OpenWeatherMap;
-use DS\IP\IP;
 use DS\IP\IpInfo;
 use DS\Utilities\GeoLocation;
 use DS\Utilities\Markdown;
