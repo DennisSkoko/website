@@ -28,12 +28,22 @@ class Main extends Controller
      */
     public function home()
     {
+
         // For weather widget
         $this->theme->set("stylesheets", ["style/css/weather.css"]);
 
-        $geoLoc = new GeoLocation();
-        $geoLoc->setLocation(IpInfo::fetch("loc")->from($_SERVER["REMOTE_ADDR"])->getLoc());
-        $weather = $this->getCurrentWeather($geoLoc);
+        $ipinfo = IpInfo::fetch("loc")->from($_SERVER["REMOTE_ADDR"])->getLoc();
+
+        if ($ipinfo !== null) {
+            $geoLoc = new GeoLocation();
+            $geoLoc->setLocation($ipinfo);
+            $weather = $this->getCurrentWeather($geoLoc);
+        } else {
+            $weather = null;
+            $this->services->logger->notice("Couldn't get weather because of ipinfo did not give a location", [
+                "ip" => $_SERVER["REMOTE_ADDR"],
+            ]);
+        }
 
         $feature = Markdown::file(Path::make(["app", "Resources", "Content"], "welcome.md"));
 

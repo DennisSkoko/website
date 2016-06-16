@@ -197,7 +197,10 @@ class IpInfo
     {
         foreach ($values as $key => $value) {
             if (property_exists($this, $key) && $key !== "request") {
-                $this->$key = trim($value);
+                $value = trim($value);
+                if ($value !== "undefined") {
+                    $this->$key = $value;
+                }
             } else {
                 throw new \LogicException(__METHOD__ . ": Unknown key: $key");
             }
