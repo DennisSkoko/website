@@ -4,22 +4,22 @@
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input class="form-control" id="name" name="name" value="<?= isset($data["name"]) ? $data["name"] : "" ?>">
+            <input class="form-control" id="name" name="name" value="<?= isset($data["name"]) ? $data["name"] : "" ?>" required>
         </div>
 
         <div class="form-group">
             <label for="email">Email address</label>
-            <input class="form-control" id="email" name="email" value="<?= isset($data["email"]) ? $data["email"] : "" ?>">
+            <input type="email" class="form-control" id="email" name="email" value="<?= isset($data["email"]) ? $data["email"] : "" ?>" required>
         </div>
 
         <div class="form-group">
             <label for="subject">Subject</label>
-            <input class="form-control" id="subject" name="subject" value="<?= isset($data["subject"]) ? $data["subject"] : "" ?>">
+            <input class="form-control" id="subject" name="subject" value="<?= isset($data["subject"]) ? $data["subject"] : "" ?>" required>
         </div>
 
         <div class="form-group">
             <label for="message">Message <small>Supports <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a></small></label>
-            <textarea class="form-control" id="message" name="message" value="<?= isset($data["message"]) ? $data["message"] : "" ?>" style="resize: vertical; min-height: 200px"></textarea>
+            <textarea class="form-control" id="message" name="message" style="resize: vertical; min-height: 200px" required><?= isset($data["message"]) ? $data["message"] : "" ?></textarea>
         </div>
 
         <div class="text-right">
