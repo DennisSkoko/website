@@ -4,6 +4,7 @@
     <head>
         <meta charset="<?= $charset ?>">
         <?= View::make("util.meta", compact("meta")) ?>
+        <?= View::make("util.open-graph", compact("og")) ?>
 
         <title><?= isset($title) ? $title . " - " : "" ?><?= $name ?></title>
         <?= View::make("util.stylesheets", compact("stylesheets")) ?>

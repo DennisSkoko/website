@@ -16,7 +16,8 @@ return [
 
         "image" => \DS\Utilities\Url::make("img/avatar.jpg"),
 
-        "url" => $_SERVER["HTTP_HOST"] . strstr($_SERVER["REQUEST_URI"], "?"),
+        // The current URL
+        "url" => $_SERVER["HTTP_HOST"] . explode("?", $_SERVER["REQUEST_URI"])[0],
 
     ],
 
