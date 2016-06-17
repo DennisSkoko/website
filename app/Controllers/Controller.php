@@ -53,6 +53,7 @@ class Controller
         $layout = Fileloader::get(Path::make(["app", "Config"], "layout.php"));
 
         Util::push($layout, Fileloader::get(Path::make(["app", "Config"], "navbar.php")));
+        Util::push($layout, Fileloader::get(Path::make(["app", "Config"], "open-graph.php")));
 
         $layoutView = Util::pull($layout, "view");
         $this->theme = View::make($layoutView)->with($layout);
