@@ -27,15 +27,6 @@ class Service extends Controller
 
 
     /**
-     * Weather
-     */
-    public function weather()
-    {
-        return $this->dev()->render();
-    }
-
-
-    /**
      * IP Info
      */
     public function ipinfo()
