@@ -22,6 +22,8 @@ return [
 
     "lang" => "en",
 
+    "favicon" => "img/favicon.ico",
+
     "stylesheets" => [
         "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
         "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css",

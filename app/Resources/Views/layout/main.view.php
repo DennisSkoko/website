@@ -7,6 +7,10 @@
 
         <title><?= isset($title) ? $title . " - " : "" ?><?= $name ?></title>
         <?= View::make("util.stylesheets", compact("stylesheets")) ?>
+
+        <?php if (!empty($favicon)): ?>
+            <link rel="shortcut icon" href="<?= \DS\Utilities\Url::make($favicon) ?>">
+        <?php endif; ?>
     </head>
     <body>
         <?= View::make("widgets.navbar", $navbar) ?>
