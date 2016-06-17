@@ -6,7 +6,7 @@ return [
 
     "meta" => [
         "viewport" => "width=device-width, initial-scale=1",
-        "description" => "A website about a software developer with the name of Dennis Skoko.",
+        "description" => "This website was developed by me, Dennis Skoko. I'm a web developer that love coding packages and more on my free time.",
         "keywords" => [
             "Dennis",
             "Skoko",
@@ -16,7 +16,7 @@ return [
         "author" => "Dennis Skoko",
     ],
 
-    "name" => "Dennis Skoko",
+    "name" => "Dennis Skoko",g
 
     "charset" => "utf-8",
 
