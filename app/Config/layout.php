@@ -6,7 +6,7 @@ return [
 
     "meta" => [
         "viewport" => "width=device-width, initial-scale=1",
-        "description" => "A software developer with the name of Dennis Skoko.",
+        "description" => "A website about a software developer with the name of Dennis Skoko.",
         "keywords" => [
             "Dennis",
             "Skoko",
