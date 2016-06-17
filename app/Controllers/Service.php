@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use DS\IP\IP;
 use DS\IP\IpInfo;
 use Honth\Renderer\View;
 
@@ -31,7 +32,7 @@ class Service extends Controller
      */
     public function ipinfo()
     {
-        $ipinfo = IpInfo::all()->from($_SERVER["REMOTE_ADDR"]);
+        $ipinfo = IpInfo::all()->from(IP::get());
 
         return $this->theme->with([
             "title" => "IP Info",

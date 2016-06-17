@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Cmfcmf\OpenWeatherMap;
+use DS\IP\IP;
 use DS\IP\IpInfo;
 use DS\Utilities\GeoLocation;
 use DS\Utilities\Markdown;
@@ -31,7 +32,7 @@ class Main extends Controller
         // For weather widget
         $this->theme->set("stylesheets", ["style/css/weather.css"]);
 
-        $ipinfo = IpInfo::fetch("loc")->from($_SERVER["REMOTE_ADDR"])->getLoc();
+        $ipinfo = IpInfo::fetch("loc")->from(IP::get())->getLoc();
 
         if ($ipinfo !== null) {
             $geoLoc = new GeoLocation();
@@ -40,7 +41,7 @@ class Main extends Controller
         } else {
             $weather = null;
             $this->services->logger->notice("Couldn't get weather because of ipinfo did not give a location", [
-                "ip" => $_SERVER["REMOTE_ADDR"],
+                "ip" => IP::get(),
             ]);
         }
 
@@ -191,7 +192,7 @@ class Main extends Controller
         if (is_string($result)) {
             $this->services->logger->notice("Failed to fetch the weather information", [
                 "errorMessage" => $result,
-                "ip" => $_SERVER["REMOTE_ADDR"],
+                "ip" => IP::get(),
                 "geoLoc" => $loc->getLocation(),
             ]);
             $result = null;
