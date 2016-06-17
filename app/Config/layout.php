@@ -16,7 +16,7 @@ return [
         "author" => "Dennis Skoko",
     ],
 
-    "name" => "Dennis Skoko",g
+    "name" => "Dennis Skoko",
 
     "charset" => "utf-8",
 
