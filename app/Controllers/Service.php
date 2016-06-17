@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use DS\Calendar\Calendar;
 use DS\IP\IP;
 use DS\IP\IpInfo;
 use Honth\Renderer\View;
@@ -48,6 +49,8 @@ class Service extends Controller
      */
     public function calendar()
     {
+        $calendar = new Calendar;
+
         return $this->dev()->render();
     }
 
