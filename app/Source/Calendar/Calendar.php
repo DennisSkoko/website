@@ -112,7 +112,8 @@ class Calendar
         $this->unix = $day = strtotime(date($this->year . "-" . $this->month . "-01"));
 
         // Convert to first day of the first week of the month in Unix time.
-        $day = strtotime("this week", $day);
+        // Must use 'last monday' because of a PHP bug. Using 'this week' on a sunday gives next weeks monday.
+        $day = strtotime("last monday", $day);
 
         for ($i = 0; $i < 6; $i++) {
             $this->weeks[] = new Week($day, $this->month);
