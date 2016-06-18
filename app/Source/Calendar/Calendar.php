@@ -28,6 +28,11 @@ class Calendar
      */
     protected $weeks;
 
+    /**
+     * @var int - The unix time of the current month and year.
+     */
+    protected $unix;
+
 
     /**
      * Calendar constructor.
@@ -37,8 +42,9 @@ class Calendar
      */
     public function __construct($month = null, $year = null)
     {
-        $this->month = (int)date("n");
-        $this->year = (int)date("Y");
+        $this->year = $year !== null ? $year : (int)date("Y");
+        $this->month = $month !== null ? $month : (int)date("n");
+
         $this->weeks = [];
 
         $this->setWeeks();
@@ -73,12 +79,37 @@ class Calendar
 
 
     /**
+     * A text representation of the month.
+     *
+     * @return string
+     */
+    public function getMonthAsText()
+    {
+        return $this->format("F");
+    }
+
+
+    /**
+     * Will format the current time with the given format.
+     * If no format is given then will return the Unix time.
+     *
+     * @param string $format
+     *
+     * @return bool|int|string
+     */
+    public function format($format = null)
+    {
+        return $format !== null ? date($format, $this->unix) : $this->unix;
+    }
+
+
+    /**
      * This function will populate the weeks property
      */
     protected function setWeeks()
     {
         // Get the first day of the month in Unix time
-        $day = strtotime(date($this->year . "-" . $this->month . "-01"));
+        $this->unix = $day = strtotime(date($this->year . "-" . $this->month . "-01"));
 
         // Convert to first day of the first week of the month in Unix time.
         $day = strtotime("this week", $day);

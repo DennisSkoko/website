@@ -11,5 +11,4 @@ $app->post("/contact/send", Dispatcher::make([Main::class, "processEmail"]));
 
 $app->get("/service", Dispatcher::make([Service::class, "all"]));
 $app->get("/service/ipinfo", Dispatcher::make([Service::class, "ipinfo"]));
-$app->get("/service/calendar", Dispatcher::make([Service::class, "calendar"]));
-
+$app->get("/service/calendar[/{date}]", Dispatcher::make([Service::class, "calendar"]));

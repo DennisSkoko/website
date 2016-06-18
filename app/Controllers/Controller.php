@@ -70,4 +70,22 @@ class Controller
             $this->theme->with(compact("flash"));
         }
     }
+
+
+
+    /**
+     * A function that will load a flash message into the theme saying that the page is under development.
+     *
+     * @return View
+     */
+    protected function dev()
+    {
+        return $this->theme->with([
+            "flash" => [
+                "status" => "info",
+                "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
+                "body" => "This page is under development."
+            ]
+        ]);
+    }
 }

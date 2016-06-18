@@ -6,6 +6,8 @@ use DS\Calendar\Calendar;
 use DS\IP\IP;
 use DS\IP\IpInfo;
 use Honth\Renderer\View;
+use Honth\Validation\Validator;
+use Slim\Http\Request;
 
 /**
  * Class Service
@@ -35,6 +37,8 @@ class Service extends Controller
     {
         $ipinfo = IpInfo::all()->from(IP::get());
 
+        $this->theme->set("meta.keywords", ["IP", "Whats my IP"]);
+
         return $this->theme->with([
             "title" => "IP Info",
             "main" => View::make("widgets.main.standard", [
@@ -47,25 +51,43 @@ class Service extends Controller
     /**
      * Calendar
      */
-    public function calendar()
+    public function calendar(Request $request)
     {
-        $calendar = new Calendar;
+        $date = explode("-", $request->getAttribute("date"));
+        $year = null;
+        $month = null;
 
-        return $this->dev()->render();
-    }
+        if (count($date) == 2 && ctype_digit($date[0]) && ctype_digit($date[1])) {
+            // Clean the month from any leading zeros
+            $date[1] = ltrim($date[1], '0');
 
+            $validator = new Validator;
 
-    /**
-     * @return View
-     */
-    private function dev()
-    {
+            $validator->check($date, [
+                0 => [
+                    "min" => 1970,
+                    "max" => 2037,
+                ],
+
+                1 => [
+                    "min" => 1,
+                    "max" => 12,
+                ]
+            ]);
+
+            if (!$validator->fails()) {
+                $year = $date[0];
+                $month = $date[1];
+            }
+        }
+
+        $calendar = new Calendar($month, $year);
+
+        $this->theme->set("meta.keywords", ["Calendar"]);
+
         return $this->theme->with([
-            "flash" => [
-                "status" => "info",
-                "title" => "<span class='glyphicon glyphicon-wrench'></span> Under Development",
-                "body" => "This page is under development."
-            ]
-        ]);
+            "title" => "Calendar",
+            "main" => View::make("widgets.calendar", compact("calendar")),
+        ])->render();
     }
 }
