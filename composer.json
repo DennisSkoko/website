@@ -1,19 +1,9 @@
 {
     "require": {
-        "slim/slim": "^3.0",
-        "honth/filehandler": "^1.0",
-        "honth/log": "^1.0",
-        "honth/utilities": "dev-master",
-        "honth/renderer": "dev-master",
-        "honth/validation": "^1.0",
-        "erusev/parsedown": "^1.6",
-        "cmfcmf/openweathermap-php-api": "^2.1",
-        "phpmailer/phpmailer": "^5.2"
+
     },
     "autoload": {
         "psr-4": {
-            "DS\\": "app/Source",
-            "Controllers\\": "app/Controllers"
         }
     }
 }

@@ -1,13 +1,9 @@
-# PhpStorm project files
-.idea
-
 # Composer
-/vendor/
+vendor/
 composer.lock
 
 # Bin
-/bin/
+bin/
 
-# Sensitive config files
-app/Config/weather.php
-app/Config/mail.php
+# Configuration
+.env.ini
