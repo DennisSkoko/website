@@ -1,0 +1,13 @@
+<?php $csrf = \DS\DC::get('csrf') ?>
+
+<input
+    type="hidden"
+    name="<?= $csrf->getTokenNameKey() ?>"
+    value="<?= $csrf->getTokenName() ?>"
+>
+
+<input
+    type="hidden"
+    name="<?= $csrf->getTokenValueKey() ?>"
+    value="<?= $csrf->getTokenValue() ?>"
+>

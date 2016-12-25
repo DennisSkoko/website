@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="<?= $lang ?>">
+    <head>
+        <meta charset="<?= $charset ?>">
+        <?= \DS\View::make('util.meta')->with(compact('meta')) ?>
+
+        <base href="<?= $basePath ?>">
+
+        <title><?= isset($title) ? $title . ' - ' . $mainTitle : $mainTitle ?></title>
+
+        <?= \DS\View::make('util.stylesheets')->with(compact('stylesheets')) ?>
+    </head>
+    <body>
+        <?= isset($flash) ? $flash : null ?>
+        
+        <?= isset($main) ? $main : null ?>
+
+        <?= \DS\View::make('util.javascript')->with(compact('javascript')) ?>
+    </body>
+</html>

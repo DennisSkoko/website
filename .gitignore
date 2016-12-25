@@ -1,9 +1,9 @@
 # Composer
-vendor/
+vendor
 composer.lock
 
-# Bin
-bin/
-
-# Configuration
+# Environment
 .env.ini
+
+# Other
+bin
