@@ -11,6 +11,8 @@
         <?= \DS\View::make('util.stylesheets')->with(compact('stylesheets')) ?>
     </head>
     <body>
+        <?= \DS\View::make('widget.navbar')->with($navbar) ?>
+
         <?= isset($flash) ? $flash : null ?>
         
         <?= isset($main) ? $main : null ?>

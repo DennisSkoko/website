@@ -33,4 +33,10 @@ return [
         'file' => Path::make(['config'], 'theme.php')
     ],
 
+
+    'less-compiler' => [
+        'input' => Path::make(['public', 'style', 'less']),
+        'output' => Path::make(['public', 'style', 'css'])
+    ]
+
 ];

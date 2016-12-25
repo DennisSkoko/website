@@ -13,7 +13,9 @@
         "slim/csrf": "^0.8.1",
         "dennisskoko/utilities": "^1.0",
         "dennisskoko/view": "^1.0",
-        "monolog/monolog": "^1.22"
+        "monolog/monolog": "^1.22",
+        "symfony/console": "^3.1",
+        "oyejorge/less.php": "v1.7.0.10"
     },
     "autoload": {
         "psr-4": {

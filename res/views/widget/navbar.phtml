@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?= $brand["url"] ?>"><?= $brand["text"] ?></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <?php foreach ($links as $text => $urls): ?>
+
+                    <?php if (!is_array($urls)): ?>
+                        <li><a href="<?= $urls ?>"><?= $text ?></a></li>
+                    <?php else: ?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $text ?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <?php foreach ($urls as $linkText => $linkUrl): ?>
+                                    <li><a href="<?= $linkUrl ?>"><?= $linkText ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+    </div>
+</nav>

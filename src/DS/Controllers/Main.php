@@ -9,12 +9,11 @@ use Slim\Http\Response;
 
 class Main extends Controller
 {
-    public function welcome(Request $request, Response $response)
+    public function home(Request $request, Response $response)
     {
         return $this->container->theme
             ->with([
-                'title' => 'Welcome',
-                'main' => View::make('page.welcome')
+                'title' => 'Welcome'
             ])
             ->renderInto($response);
     }

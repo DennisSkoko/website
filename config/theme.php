@@ -12,14 +12,15 @@ return [
 
     'lang' => 'sv',
     'charset' => 'utf-8',
-    'mainTitle' => 'Application',
+    'mainTitle' => 'Dennis Skoko',
 
     'meta' => [
         'viewport' => 'width=device-width, initial-scale=1',
     ],
 
     'stylesheets' => [
-        'style/css/style.css'
+        'style/css/normalize.css',
+        'style/css/bootstrap.css'
     ],
 
     'javascript' => [
@@ -27,8 +28,14 @@ return [
     ],
 
     'navbar' => [
-        'links' => [
+        'brand' => [
+            'text' => 'Dennis Skoko',
+            'url' => '/'
+        ],
 
+        'links' => [
+            'About' => 'about',
+            'Contact' => 'contact'
         ],
     ],
 
