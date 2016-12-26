@@ -3,6 +3,7 @@
 namespace DS\Providers;
 
 use DS\Storage\Session;
+use DS\Support\MarkdownParser;
 use DS\Support\Validation\Validator;
 use DS\View;
 use DS\ViewManager;
@@ -89,10 +90,10 @@ class AppServices implements ServiceProviderInterface
 
 
         /**
-         * @return \Parsedown
+         * @return MarkdownParser
          */
         $container['markdown'] = function () {
-            return new \Parsedown();
+            return new MarkdownParser();
         };
 
     }

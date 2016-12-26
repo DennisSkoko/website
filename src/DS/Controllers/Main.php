@@ -3,6 +3,8 @@
 namespace DS\Controllers;
 
 use DS\Controller;
+use DS\Utilities\Path;
+use DS\View;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -19,7 +21,11 @@ class Main extends Controller
     {
         return $this->container->theme
             ->with([
-                'title' => 'Welcome'
+                'title' => 'Welcome',
+                'main' => View::make('page.home')
+                    ->with([
+                        'content' => $this->container->markdown->file(Path::make(['res', 'content'], 'welcome.md')),
+                    ])
             ])
             ->renderInto($response);
     }
