@@ -20,11 +20,13 @@ return [
 
     'stylesheets' => [
         'style/css/normalize.css',
-        'style/css/bootstrap.css'
+        'style/css/bootstrap.css',
+        'style/css/main.css'
     ],
 
     'javascript' => [
-
+        'js/jquery.js',
+        'js/bootstrap.js'
     ],
 
     'navbar' => [
@@ -34,7 +36,6 @@ return [
         ],
 
         'links' => [
-            'About' => 'about',
             'Contact' => 'contact'
         ],
     ],

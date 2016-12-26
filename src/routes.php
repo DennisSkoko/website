@@ -3,6 +3,7 @@
  * Defines routes for the application.
  */
 
+use DS\Controllers\Contact;
 use DS\Controllers\Main;
 
 /*
@@ -12,13 +13,16 @@ $app->add($container->csrf);
 
 
 /*
- * Main
+ * Home
  */
 $app->get('/', Main::class . ':home')
     ->setName('home');
 
-$app->get('/about', Main::class . ':home')
-    ->setName('about');
-
-$app->get('/contact', Main::class . ':home')
+/*
+ * Contact
+ */
+$app->get('/contact', Contact::class . ':form')
     ->setName('contact');
+
+$app->post('/contact', Contact::class . ':process')
+    ->setName('contact-process');
