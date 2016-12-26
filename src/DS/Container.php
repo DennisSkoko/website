@@ -15,8 +15,7 @@ use Slim\Csrf\Guard;
  * @property-read Session    $session
  * @property-read Guard      $csrf
  * @property-read View       $theme
- * @property-read Connection $db
- * @property-read Validator  $validator
+ * @property-read \Parsedown $markdown
  */
 class Container extends \Slim\Container
 {

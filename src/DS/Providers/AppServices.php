@@ -56,7 +56,7 @@ class AppServices implements ServiceProviderInterface
         };
 
 
-        /**Storage
+        /**
          * @param Container $c
          *
          * @return Guard
@@ -85,6 +85,14 @@ class AppServices implements ServiceProviderInterface
             });
 
             return View::make($settings['file'])->with($settings);
+        };
+
+
+        /**
+         * @return \Parsedown
+         */
+        $container['markdown'] = function () {
+            return new \Parsedown();
         };
 
     }
