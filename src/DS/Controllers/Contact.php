@@ -35,6 +35,8 @@ class Contact extends Controller
      */
     public function process(Request $request, Response $response)
     {
+        $this->container->session->flash('info', 'This functionality has not been implemented yet.');
+
         return $response->withRedirect($this->container->router->pathFor('contact'));
     }
 }
