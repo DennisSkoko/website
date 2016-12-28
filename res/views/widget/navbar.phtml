@@ -17,7 +17,7 @@
                 /** @var \Slim\Http\Uri $uri */
                 $uri = \DS\DC::get('request')->getUri();
                 $path = $uri->getPath();
-                $path = $uri->getBasePath() . ($path === '/' ? $path : '/' . $path);
+                $path = $uri->getBasePath() . ($path === '/' ? $path : '/' . ltrim($path, '/'));
 
                 foreach ($links as $text => $url): ?>
 

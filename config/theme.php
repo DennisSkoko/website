@@ -35,6 +35,7 @@ return [
         ],
 
         'links' => [
+            'Welcome' => 'home',
             'Contact' => 'contact'
         ],
     ],
