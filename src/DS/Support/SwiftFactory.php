@@ -48,7 +48,7 @@ class SwiftFactory
     /**
      * @return \Swift_Message
      */
-    public function makeMessage()
+    public function message()
     {
         $message = new \Swift_Message();
 
