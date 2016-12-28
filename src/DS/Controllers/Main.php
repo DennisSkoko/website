@@ -23,9 +23,23 @@ class Main extends Controller
             ->with([
                 'title' => 'Welcome',
                 'main' => View::make('page.home')
-                    ->with([
-                        'content' => $this->container->markdown->file(Path::make(['res', 'content'], 'welcome.md')),
-                    ])
+            ])
+            ->renderInto($response);
+    }
+
+
+    /**
+     * @param Request  $request
+     * @param Response $response
+     *
+     * @return ResponseInterface
+     */
+    public function showcase(Request $request, Response $response)
+    {
+        return $this->container->theme
+            ->with([
+                'title' => 'Welcome',
+                'main' => View::make('page.showcase')
             ])
             ->renderInto($response);
     }

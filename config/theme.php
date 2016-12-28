@@ -19,7 +19,6 @@ return [
     ],
 
     'stylesheets' => [
-        'style/css/normalize.css',
         'style/css/bootstrap.css',
         'style/css/main.css'
     ],
