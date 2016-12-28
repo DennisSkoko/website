@@ -13,20 +13,27 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <?php foreach ($links as $text => $urls): ?>
+                <?php
+                /** @var \Slim\Http\Uri $uri */
+                $uri = \DS\DC::get('request')->getUri();
+                $path = $uri->getPath();
+                $path = $uri->getBasePath() . ($path === '/' ? $path : '/' . $path);
 
-                    <?php if (!is_array($urls)): ?>
-                        <li><a href="<?= $urls ?>"><?= $text ?></a></li>
+                foreach ($links as $text => $url): ?>
+
+                    <?php if (!is_array($url)): ?>
+                        <li class="<?= $path == $url ? 'active' : '' ?>"><a href="<?= $url ?>"><?= $text ?></a></li>
                     <?php else: ?>
-                        <li class="dropdown">
+                        <li class="dropdown <?= in_array($path, $url) ? 'active' : '' ?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $text ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <?php foreach ($urls as $linkText => $linkUrl): ?>
-                                    <li><a href="<?= $linkUrl ?>"><?= $linkText ?></a></li>
+                                <?php foreach ($url as $subText => $subUrl): ?>
+                                    <li class="<?= $path == $subUrl ? 'active' : '' ?>"><a href="<?= $subUrl ?>"><?= $subText ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
                     <?php endif; ?>
+
                 <?php endforeach; ?>
             </ul>
         </div>
