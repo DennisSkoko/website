@@ -2,13 +2,11 @@
 
 namespace DS\Providers;
 
+use DS\Support\SwiftFactory;
 use DS\Storage\Session;
 use DS\Support\MarkdownParser;
-use DS\Support\Validation\Validator;
 use DS\View;
 use DS\ViewManager;
-use Illuminate\Database\Capsule\Manager;
-use Illuminate\Database\Connection;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
 use Pimple\Container;
@@ -104,6 +102,16 @@ class AppServices implements ServiceProviderInterface
          */
         $container['markdown'] = function () {
             return new MarkdownParser();
+        };
+
+
+        /**
+         * @param Container $c
+         *
+         * @return SwiftFactory
+         */
+        $container['mailer'] = function (Container $c) {
+            return new SwiftFactory($c['settings']['mailer']);
         };
 
     }

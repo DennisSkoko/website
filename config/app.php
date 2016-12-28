@@ -33,6 +33,25 @@ return [
         'file' => Path::make(['config'], 'theme.php')
     ],
 
+    'mailer' => [
+        'user' => $env['mailer']['user'],
+        'pass' => $env['mailer']['pass'],
+
+        'charset' => 'utf8',
+        'debug' => false,
+
+        'from' => [
+            'name' => 'Mens Shoppen',
+            'email' => $env['mailer']['user'],
+        ],
+
+        'transport' => [
+            'host' => $env['mailer']['host'],
+            'port' => $env['mailer']['port'],
+            'security' => $env['mailer']['security'],
+        ],
+    ],
+
 
     'less-compiler' => [
         'input' => Path::make(['res', 'assets', 'less']),

@@ -4,6 +4,7 @@ namespace DS;
 
 use DS\Storage\Session;
 use DS\Support\MarkdownParser;
+use DS\Support\SwiftFactory;
 use DS\Support\Validation\Validator;
 use Illuminate\Database\Connection;
 use Monolog\Logger;
@@ -17,6 +18,7 @@ use Slim\Csrf\Guard;
  * @property-read Guard          $csrf
  * @property-read View           $theme
  * @property-read MarkdownParser $markdown
+ * @property-read SwiftFactory   $mailer
  */
 class Container extends \Slim\Container
 {
