@@ -31,7 +31,7 @@ return [
     'navbar' => [
         'brand' => [
             'text' => 'Dennis Skoko',
-            'url' => '/'
+            'url' => 'home'
         ],
 
         'links' => [

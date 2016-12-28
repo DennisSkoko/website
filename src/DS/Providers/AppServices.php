@@ -81,6 +81,7 @@ class AppServices implements ServiceProviderInterface
             }
 
             // Parse the navbar route names.
+            $settings['navbar']['brand']['url'] = $c['router']->pathFor($settings['navbar']['brand']['url']);
             array_walk($settings['navbar']['links'], function (&$item) use ($c) {
                 $item = $c['router']->pathFor($item);
             });
