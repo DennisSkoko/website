@@ -35,8 +35,8 @@ return [
 
 
     'less-compiler' => [
-        'input' => Path::make(['public', 'style', 'less']),
-        'output' => Path::make(['public', 'style', 'css'])
+        'input' => Path::make(['res', 'assets', 'less']),
+        'output' => Path::make(['public', 'css'])
     ]
 
 ];

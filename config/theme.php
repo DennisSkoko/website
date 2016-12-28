@@ -19,8 +19,8 @@ return [
     ],
 
     'stylesheets' => [
-        'style/css/bootstrap.css',
-        'style/css/main.css'
+        'css/bootstrap.css',
+        'css/main.css'
     ],
 
     'javascript' => [
