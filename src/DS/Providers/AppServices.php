@@ -80,10 +80,19 @@ class AppServices implements ServiceProviderInterface
                 $settings['flash'] = View::make('widget.flash-message')->with($c['session']->pull('flash-message'));
             }
 
+            // Route parser
+            $routeParser = function (&$route) use ($c) {
+                $route = $c['router']->pathFor($route);
+            };
+
             // Parse the navbar route names.
-            $settings['navbar']['brand']['url'] = $c['router']->pathFor($settings['navbar']['brand']['url']);
-            array_walk($settings['navbar']['links'], function (&$item) use ($c) {
-                $item = $c['router']->pathFor($item);
+            $routeParser($settings['navbar']['brand']['url']);
+            array_walk($settings['navbar']['links'], function (&$item) use ($c, $routeParser) {
+                if (is_array($item)) {
+                    array_walk($item, $routeParser);
+                } else {
+                    $routeParser($item);
+                }
             });
 
             return View::make($settings['file'])->with($settings);
