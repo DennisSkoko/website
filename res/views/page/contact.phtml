@@ -1,23 +1,28 @@
 <main class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-push-3">
-            <form method="post">
-                <div class="form-group form-group-lg">
-                    <input class="form-control" type="email" name="email" placeholder="Email" required value="dennis.skoko@hotmail.com">
-                </div>
+            <div class="well well-lg">
+                <form method="post">
+                    <fieldset>
+                        <legend>Contact me</legend>
+                        <div class="form-group form-group-lg">
+                            <input class="form-control" type="email" name="email" placeholder="Email" required value="dennis.skoko@hotmail.com">
+                        </div>
 
-                <div class="form-group form-group-lg">
-                    <input class="form-control" name="subject" placeholder="Subject" required value="Greeting">
-                </div>
+                        <div class="form-group form-group-lg">
+                            <input class="form-control" name="subject" placeholder="Subject" required value="Greeting">
+                        </div>
 
-                <div class="form-group form-group-lg">
-                    <textarea class="form-control" name="message" placeholder="Message" rows="4" required>Hello, I want to meet you sometime at Espresso House!</textarea>
-                </div>
+                        <div class="form-group form-group-lg">
+                            <textarea class="form-control" name="message" placeholder="Message" rows="4" required>Hello, I want to meet you sometime at Espresso House!</textarea>
+                        </div>
 
-                <?= \DS\View::make('util.csrf') ?>
+                        <?= \DS\View::make('util.csrf') ?>
 
-                <input type="submit" class="btn btn-lg btn-block btn-default" value="Send">
-            </form>
+                        <input type="submit" class="btn btn-lg btn-block btn-default" value="Send">
+                    </fieldset>
+                </form>
+            </div>
         </div>
     </div>
 </main>
