@@ -41,7 +41,7 @@ return [
         'debug' => false,
 
         'from' => [
-            'name' => 'Mens Shoppen',
+            'name' => 'Dennis Skoko',
             'email' => $env['mailer']['user'],
         ],
 
