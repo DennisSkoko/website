@@ -5,6 +5,7 @@
 
 use DS\Controllers\Contact;
 use DS\Controllers\Main;
+use DS\Controllers\Projects;
 
 /*
  * Middleware
@@ -17,6 +18,12 @@ $app->add($container->csrf);
  */
 $app->get('/', Main::class . ':home')
     ->setName('home');
+
+/*
+ * Projects
+ */
+$app->get('/projects', Projects::class . ':all')
+    ->setName('projects');
 
 /*
  * Contact
