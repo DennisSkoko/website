@@ -15,6 +15,9 @@ body footer {
   text-align: center;
   margin-top: 50px;
 }
+body footer .container {
+  border-top: 1px solid #555555;
+}
 .social {
   margin: 10px 0;
 }
