@@ -1,0 +1,7 @@
+<?php if (\DS\DC::get('session')->has('form-errors.' . $field)): ?>
+    <ul class="input-errors">
+        <?php foreach (\DS\DC::get('session')->pull('form-errors.' . $field) as $error): ?>
+            <li class="text-warning"><p class="text-warning"><?= $error ?></p></li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

@@ -5,6 +5,7 @@ namespace DS\Providers;
 use DS\Support\SwiftFactory;
 use DS\Storage\Session;
 use DS\Support\MarkdownParser;
+use DS\Support\Validation\Validator;
 use DS\View;
 use DS\ViewManager;
 use Monolog\Handler\RotatingFileHandler;
@@ -94,6 +95,14 @@ class AppServices implements ServiceProviderInterface
             });
 
             return View::make($settings['file'])->with($settings);
+        };
+
+
+        /**
+         * @return Validator
+         */
+        $container['validator'] = function () {
+            return new Validator();
         };
 
 

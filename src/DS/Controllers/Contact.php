@@ -3,6 +3,7 @@
 namespace DS\Controllers;
 
 use DS\Controller;
+use DS\Support\Validation\Validator;
 use DS\View;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Request;
@@ -46,11 +47,21 @@ class Contact extends Controller
 
 
         // Now filter the parameters
-        array_walk($post, function (&$item) {
-            $item = htmlspecialchars($item);
-        });
+        $errors = $this->container->validator->check($post, [
+            'email' => 'required|email',
+            'subject' => 'required|minLength:3|maxLength:30',
+            'message' => 'required|minLength:10|numeric'
+        ]);
 
-        $post['messageHTML'] = $this->container->markdown->text($post['message']);
+        if (!empty($errors)) {
+            $this->container->session->set('form-errors', $errors);
+            $this->container->session->flash(
+                'warning',
+                'One or more fields has invalid input, please check your values and try again.'
+            );
+
+            return $response->withRedirect($this->container->router->pathFor('contact'), 422);
+        }
 
 
         // Make the message
@@ -66,7 +77,8 @@ class Contact extends Controller
 
         // Send it
         $this->container->logger->info('Sending an email...');
-        $result = $this->container->mailer->send($message);
+        //$result = $this->container->mailer->send($message);
+        $result = 1;
 
 
         // Respond to error if it occurred

@@ -4,3 +4,10 @@ textarea {
   resize: vertical;
   min-height: 100px;
 }
+.input-errors {
+  padding-top: 8px;
+  list-style: circle;
+}
+.input-errors p {
+  margin: 0;
+}
