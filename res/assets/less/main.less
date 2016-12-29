@@ -4,6 +4,7 @@
 
 @github-color: #0f0f0f;
 @instagram-color: #a45b0d;
+@email-color: @brand-primary;
 
 textarea {
     resize: vertical;
@@ -53,6 +54,14 @@ body footer {
 
             &:hover {
                 background-color: lighten(@instagram-color, 10%);
+            }
+        }
+
+        &.email {
+            background-color: @email-color;
+
+            &:hover {
+                background-color: lighten(@email-color, 10%);
             }
         }
     }

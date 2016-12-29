@@ -41,3 +41,9 @@ body footer .container {
 .social .social-link.instagram:hover {
   background-color: #d37511;
 }
+.social .social-link.email {
+  background-color: #337ab7;
+}
+.social .social-link.email:hover {
+  background-color: #5094ce;
+}
