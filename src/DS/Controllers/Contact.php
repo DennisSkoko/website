@@ -65,12 +65,13 @@ class Contact extends Controller
             ->addPart($post['messageHTML'], 'text/html');
 
         // Send it
+        $this->container->logger->info('Sending an email...');
         $result = $this->container->mailer->send($message);
 
 
         // Respond to error if it occurred
         if ($result === 0) {
-            $this->container->log->critical('Failed when trying to send an email', $post);
+            $this->container->logger->critical('Failed when trying to send an email', $post);
             $this->container->session->flash(
                 'danger',
                 'An error occured when trying to send the email. Please try again in a few minutes.'
@@ -81,6 +82,7 @@ class Contact extends Controller
 
 
         // Success, inform the client
+        $this->container->logger->info('Successfully sent an email.');
         $this->container->session->flash(
             'success',
             'An email has been sent to ' . $this->container->settings['contact']['name'] . ' with the contents that you have given.'

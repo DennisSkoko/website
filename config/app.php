@@ -22,7 +22,7 @@ return [
     'logger' => [
         'name' => 'App',
         'filename' => Path::make(['bin', 'log'], 'app.log'),
-        'minLevel' => \Psr\Log\LogLevel::INFO,
+        'minLevel' => $env['logger']['level'],
         'maxFiles' => 30
     ],
 

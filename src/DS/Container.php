@@ -11,7 +11,7 @@ use Slim\Csrf\Guard;
 /**
  * {@inheritdoc}
  *
- * @property-read Logger         $log
+ * @property-read Logger         $logger
  * @property-read Session        $session
  * @property-read Guard          $csrf
  * @property-read View           $theme

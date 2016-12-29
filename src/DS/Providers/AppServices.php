@@ -33,7 +33,7 @@ class AppServices implements ServiceProviderInterface
          *
          * @return Logger
          */
-        $container['log'] = function (Container $c) {
+        $container['logger'] = function (Container $c) {
             $settings = $c['settings']['logger'];
 
             $logger = new Logger($settings['name']);
