@@ -35,7 +35,56 @@ class Contact extends Controller
      */
     public function process(Request $request, Response $response)
     {
-        $this->container->session->flash('info', 'This functionality has not been implemented yet.');
+        $post = $request->getParsedBody();
+
+        // Check if all parameters are sent
+        if (!isset($post['email'], $post['subject'], $post['message'])) {
+            $this->container->session->flash('warning', 'Some parameters were missing from the request.');
+
+            return $response->withRedirect($this->container->router->pathFor('contact'), 422);
+        }
+
+
+        // Now filter the parameters
+        array_walk($post, function (&$item) {
+            $item = htmlspecialchars($item);
+        });
+
+        $post['messageHTML'] = $this->container->markdown->text($post['message']);
+
+
+        // Make the message
+        $message = $this->container->mailer->message();
+
+        $message
+            ->setTo([
+                $this->container->settings['contact']['email'] => $this->container->settings['contact']['name']
+            ])
+            ->setSubject($post['subject'])
+            ->setBody($post['message'])
+            ->addPart($post['messageHTML'], 'text/html');
+
+        // Send it
+        $result = $this->container->mailer->send($message);
+
+
+        // Respond to error if it occurred
+        if ($result === 0) {
+            $this->container->log->critical('Failed when trying to send an email', $post);
+            $this->container->session->flash(
+                'danger',
+                'An error occured when trying to send the email. Please try again in a few minutes.'
+            );
+
+            return $response->withRedirect($this->container->router->pathFor('contact'), 422);
+        }
+
+
+        // Success, inform the client
+        $this->container->session->flash(
+            'success',
+            'An email has been sent to ' . $this->container->settings['contact']['name'] . ' with the contents that you have given.'
+        );
 
         return $response->withRedirect($this->container->router->pathFor('contact'));
     }

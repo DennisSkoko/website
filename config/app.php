@@ -10,6 +10,11 @@ return [
     'displayErrorDetails' => true,
     //'routerCacheFile' => Path::make(['bin', 'cache'], 'router.php'),
 
+    'contact' => [
+        'name' => 'Dennis Skoko',
+        'email' => 'dennis.skoko@hotmail.com'
+    ],
+
     'view' => [
         'directory' => Path::make(['res', 'views'])
     ],
