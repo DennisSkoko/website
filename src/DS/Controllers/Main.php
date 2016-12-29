@@ -19,10 +19,14 @@ class Main extends Controller
      */
     public function home(Request $request, Response $response)
     {
+        $intro = $this->container->markdown->file(Path::make(['res', 'content'], 'intro.md'));
+        $content = $this->container->markdown->file(Path::make(['res', 'content'], 'about.md'));
+
         return $this->container->theme
             ->with([
                 'title' => 'Welcome',
                 'main' => View::make('page.home')
+                    ->with(compact('intro', 'content'))
             ])
             ->renderInto($response);
     }

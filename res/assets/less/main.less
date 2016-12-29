@@ -1,5 +1,10 @@
 /** Main stylesheet for the application
 **************************************************/
+@import "res/theme/custom.less";
+
+@github-color: #0f0f0f;
+@instagram-color: #a45b0d;
+
 textarea {
     resize: vertical;
     min-height: 100px;
@@ -11,5 +16,40 @@ textarea {
 
     p {
         margin: 0;
+    }
+}
+
+body footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.social {
+    margin: 10px 0;
+
+    .social-link {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 5px;
+
+        img {
+            width: 30px;
+        }
+
+        &.github {
+            background-color: @github-color;
+
+            &:hover {
+                background-color: lighten(@github-color, 10%);
+            }
+        }
+
+        &.instagram {
+            background-color: @instagram-color;
+
+            &:hover {
+                background-color: lighten(@instagram-color, 10%);
+            }
+        }
     }
 }

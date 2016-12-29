@@ -17,6 +17,8 @@
         
         <?= isset($main) ? $main : null ?>
 
+        <?= \DS\View::make('widget.footer') ?>
+
         <?= \DS\View::make('util.javascript')->with(compact('javascript')) ?>
     </body>
 </html>

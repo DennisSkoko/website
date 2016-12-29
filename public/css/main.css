@@ -11,3 +11,30 @@ textarea {
 .input-errors p {
   margin: 0;
 }
+body footer {
+  text-align: center;
+  margin-top: 50px;
+}
+.social {
+  margin: 10px 0;
+}
+.social .social-link {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+}
+.social .social-link img {
+  width: 30px;
+}
+.social .social-link.github {
+  background-color: #0f0f0f;
+}
+.social .social-link.github:hover {
+  background-color: #292929;
+}
+.social .social-link.instagram {
+  background-color: #a45b0d;
+}
+.social .social-link.instagram:hover {
+  background-color: #d37511;
+}
