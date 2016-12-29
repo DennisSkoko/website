@@ -50,7 +50,7 @@ class Contact extends Controller
         $errors = $this->container->validator->check($post, [
             'email' => 'required|email',
             'subject' => 'required|minLength:3|maxLength:30',
-            'message' => 'required|minLength:10|numeric'
+            'message' => 'required|minLength:10'
         ]);
 
         if (!empty($errors)) {
