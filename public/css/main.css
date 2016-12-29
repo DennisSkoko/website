@@ -1,5 +1,8 @@
 /** Main stylesheet for the application
 **************************************************/
+html {
+  background-color: #333333;
+}
 textarea {
   resize: vertical;
   min-height: 100px;
@@ -14,9 +17,8 @@ textarea {
 body footer {
   text-align: center;
   margin-top: 50px;
-}
-body footer .container {
-  border-top: 1px solid #555555;
+  padding: 20px 0;
+  background-color: #333333;
 }
 .social {
   margin: 10px 0;
