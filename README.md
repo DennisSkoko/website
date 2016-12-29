@@ -1,7 +1,10 @@
 # Website
 This is a website for my personal web server.
 
-## How to install
+## Requirements
+- PHP v5.6 or higher
+
+## Installation
 If you are interested on installing this on your computer then you will need [Composer](https://getcomposer.org/).
 Once its installed then download the source files and run `composer install`.
 
@@ -26,4 +29,8 @@ port=587
 security="tls"
 ```
 
-Once the file is in place then you are ready to go.
+## How to run
+Once everything is ready you can use PHP to run it. Just execute the following in your ternimal.
+```
+php -S localhost:80 -t /path/to/your/project/folder/public
+```
