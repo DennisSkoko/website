@@ -38,15 +38,8 @@ class Contact extends Controller
     {
         $post = $request->getParsedBody();
 
-        // Check if all parameters are sent
-        if (!isset($post['email'], $post['subject'], $post['message'])) {
-            $this->container->session->flash('warning', 'Some parameters were missing from the request.');
 
-            return $response->withRedirect($this->container->router->pathFor('contact'), 422);
-        }
-
-
-        // Now filter the parameters
+        // Now validate the parameters
         $errors = $this->container->validator->check($post, [
             'email' => 'required|email',
             'subject' => 'required|minLength:3|maxLength:30',
@@ -57,7 +50,7 @@ class Contact extends Controller
             $this->container->session->set('form-errors', $errors);
             $this->container->session->flash(
                 'warning',
-                'One or more fields has invalid input, please check your values and try again.'
+                'One or more fields has invalid input, please try again.'
             );
 
             return $response->withRedirect($this->container->router->pathFor('contact'), 422);
@@ -66,6 +59,8 @@ class Contact extends Controller
 
         // Make the message
         $message = $this->container->mailer->message();
+        $post['message'] .= "\n\nForm: " . $post['email'];
+        $post['messageHTML'] = $this->container->markdown->text($post['message']);
 
         $message
             ->setTo([
@@ -77,8 +72,7 @@ class Contact extends Controller
 
         // Send it
         $this->container->logger->info('Sending an email...');
-        //$result = $this->container->mailer->send($message);
-        $result = 1;
+        $result = $this->container->mailer->send($message);
 
 
         // Respond to error if it occurred
