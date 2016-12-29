@@ -10,7 +10,7 @@ abstract class Rule
     protected $message = ':field is invalid.';
 
     /**
-     * @var bool - If this rule needs the requirement field from the rule map.
+     * @var bool - If this rule needs the requirement field to be set in the rule map.
      */
     protected $requirementNeeded = false;
 
