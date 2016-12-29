@@ -21,7 +21,7 @@ return [
 
     'logger' => [
         'name' => 'App',
-        'filename' => Path::make(['bin', 'log'], 'app.log'),
+        'filename' => Path::make(['bin', 'logs'], 'app.log'),
         'minLevel' => $env['logger']['level'],
         'maxFiles' => 30
     ],
