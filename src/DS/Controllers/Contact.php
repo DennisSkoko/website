@@ -77,7 +77,7 @@ class Contact extends Controller
                 'An error occured when trying to send the email. Please try again in a few minutes.'
             );
 
-            return $response->withRedirect($this->container->router->pathFor('contact'), 422);
+            return $response->withRedirect($this->container->router->pathFor('contact'), 500);
         }
 
 
