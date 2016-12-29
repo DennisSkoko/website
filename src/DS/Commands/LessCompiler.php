@@ -50,7 +50,7 @@ class LessCompiler extends Command
 
         foreach ($files as $file) {
             $css = $this->compiler
-                ->parseFile($file, '', false)
+                ->parseFile($file, '../')
                 ->getCss();
 
             $cssFile = $this->settings['output'] . DIRECTORY_SEPARATOR . $this->filename($file) . '.css';
