@@ -16,7 +16,7 @@ class Projects extends Controller
      */
     public function all(Request $request, Response $response)
     {
-        $this->container->session->flash('info', 'This site is being implemented. Please come back in a few days.');
+        $this->container->session->flash('info', 'This page is being implemented. Please come back in a few days.');
 
         return $this->container->theme
             ->with([
