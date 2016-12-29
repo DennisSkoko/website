@@ -26,21 +26,4 @@ class Main extends Controller
             ])
             ->renderInto($response);
     }
-
-
-    /**
-     * @param Request  $request
-     * @param Response $response
-     *
-     * @return ResponseInterface
-     */
-    public function showcase(Request $request, Response $response)
-    {
-        return $this->container->theme
-            ->with([
-                'title' => 'Welcome',
-                'main' => View::make('page.showcase')
-            ])
-            ->renderInto($response);
-    }
 }
