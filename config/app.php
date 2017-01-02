@@ -7,7 +7,7 @@ use DS\Utilities\Path;
 
 return [
 
-    'displayErrorDetails' => true,
+    'displayErrorDetails' => $env['debug'],
     //'routerCacheFile' => Path::make(['bin', 'cache'], 'router.php'),
 
     'contact' => [

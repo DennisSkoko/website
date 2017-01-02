@@ -15,6 +15,9 @@ First create a file with the name `.env.ini` in the project directory.
 Here is a template on how the file contents should look.
 
 ```
+debug=true
+
+
 [logger]
 level="info"
 
