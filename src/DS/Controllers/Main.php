@@ -19,6 +19,8 @@ class Main extends Controller
      */
     public function home(Request $request, Response $response)
     {
+        throw new \Exception('Something wrong happend', 0, new \Exception('again'));
+
         $intro = $this->container->markdown->file(Path::make(['res', 'content'], 'intro.md'));
         $content = $this->container->markdown->file(Path::make(['res', 'content'], 'about.md'));
 

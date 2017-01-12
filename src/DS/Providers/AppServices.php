@@ -2,6 +2,8 @@
 
 namespace DS\Providers;
 
+use DS\Controllers\Errors\Error;
+use DS\Controllers\Errors\NotFound;
 use DS\Support\SwiftFactory;
 use DS\Storage\Session;
 use DS\Support\MarkdownParser;
@@ -27,6 +29,26 @@ class AppServices implements ServiceProviderInterface
         // View
         $manager = new ViewManager($container['settings']['view']);
         $manager->setAsGlobal();
+
+
+        /**
+         * @param Container $c
+         *
+         * @return Error
+         */
+        $container['errorHandler'] = function (Container $c) {
+            return new Error($c);
+        };
+
+
+        /**
+         * @param Container $c
+         *
+         * @return NotFound
+         */
+        $container['notFoundHandler'] = function (Container $c) {
+            return new NotFound($c);
+        };
 
 
         /**

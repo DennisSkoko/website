@@ -1,0 +1,30 @@
+<main>
+    <div class="container">
+        <div class="error-description">
+            <h1>Internal Server Error - 500</h1>
+
+            <?php if (!\DS\DC::get('settings')['displayErrorDetails']): ?>
+                <p>
+                    I'm sorry but something wrong happened when trying to fulfill your request.
+                    The problem lies within the server.
+                </p>
+            <?php else: ?>
+                <?php while ($exception !== null): ?>
+                    <div class="exception-description">
+                        <h2>Error</h2>
+
+                        <p><b>Type:</b> <?= get_class($exception) ?></p>
+                        <p><b>Message:</b> <?= $exception->getMessage(); ?></p>
+                        <p><b>File:</b> <?= $exception->getFile(); ?></p>
+                        <p><b>Line:</b> <?= $exception->getLine(); ?></p>
+
+                        <h3>Trace</h3>
+                        <pre><?= $exception->getTraceAsString() ?></pre>
+                    </div>
+
+                    <?php $exception = $exception->getPrevious(); ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</main>
