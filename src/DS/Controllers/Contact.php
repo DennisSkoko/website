@@ -59,7 +59,7 @@ class Contact extends Controller
 
         // Make the message
         $message = $this->container->mailer->message();
-        $post['message'] .= "\n\nForm: " . $post['email'];
+        $post['message'] .= "\n\nFrom: " . $post['email'];
         $post['messageHTML'] = $this->container->markdown->text($post['message']);
 
         $message
@@ -91,7 +91,8 @@ class Contact extends Controller
         $this->container->logger->info('Successfully sent an email.');
         $this->container->session->flash(
             'success',
-            'An email has been sent to ' . $this->container->settings['contact']['name'] . ' with the contents that you have given.'
+            'An email has been sent to ' . $this->container->settings['contact']['name']
+            . ' with the contents that you have given. He will hear from you soon.'
         );
 
         return $response->withRedirect($this->container->router->pathFor('contact'));
