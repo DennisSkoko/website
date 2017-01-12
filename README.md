@@ -17,10 +17,11 @@ Here is a template on how the file contents should look.
 ```
 debug=true
 
+[caching]
+routes=false
 
 [logger]
 level="info"
-
 
 [mailer]
 user="email"
