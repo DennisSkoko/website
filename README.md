@@ -14,7 +14,7 @@ This is needed for the application to run.
 First create a file with the name `.env.ini` in the project directory.
 Here is a template on how the file contents should look.
 
-```
+```ini
 debug=true
 
 [caching]
