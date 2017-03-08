@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        meta(charset=settings.theme.charset)
+        base(href='/')
+        title= (title ? title + ' - ' : '') + settings.theme.title
+
+        each style in settings.theme.stylesheets
+            link(rel='stylesheet', href=style)
+    body
+        include incl/navbar.pug
+
+        block content
+
+        each script in settings.theme.javascript
+            script(src=script)
