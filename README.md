@@ -2,39 +2,19 @@
 This is a website for my personal web server.
 
 ## Requirements
-- PHP v5.6 or higher
+- [Node.js](https://nodejs.org)
+- [npm](https://www.npmjs.com/)
 
 ## Installation
-If you are interested on installing this on your computer then you will need [Composer](https://getcomposer.org/).
-Once its installed then download the source files and run `composer install`.
+To install this then go to releases and download a zipped version of this project.
+Once its downloaded and extracted then run `npm install`.
 
-### Environment
-Before you start to run the application you will need to enter some configuration.
-This is needed for the application to run.
-First create a file with the name `.env.ini` in the project directory.
-Here is a template on how the file contents should look.
+## Configuration
+To configure the application you can create a `.env` file
+where you can set global environment variables.
+Following values can be set (format: KEY=VALUE):
 
-```ini
-debug=true
-
-[caching]
-routes=false
-
-[logger]
-level="info"
-
-[mailer]
-user="email"
-pass="password"
-
-; This is for Outlook
-host="smtp.live.com"
-port=587
-security="tls"
-```
+TODO: add which keys can be added here
 
 ## How to run
-Once everything is ready you can use PHP to run it. Just execute the following in your ternimal.
-```
-php -S localhost:80 -t /path/to/your/project/folder/public
-```
+To start the server then execute the following `node bin/www`.
