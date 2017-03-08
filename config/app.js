@@ -3,6 +3,10 @@
  */
 'use strict';
 
+var path = require('path');
+
+const INSTALL_PATH = path.resolve(__dirname, '..');
+
 module.exports = {
 
     port: 80,
@@ -11,6 +15,12 @@ module.exports = {
     view: {
         folder: 'res/views',
         engine: 'pug'
+    },
+
+    content: {
+        markdown: {
+            about: path.resolve(INSTALL_PATH, 'res/content/about.md')
+        }
     }
 
 };

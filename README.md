@@ -14,7 +14,7 @@ To configure the application you can create a `.env` file
 where you can set global environment variables.
 Following values can be set (format: KEY=VALUE):
 
-TODO: add which keys can be added here
+- PORT - Which port the server will listen to.
 
 ## How to run
 To start the server then execute the following `node bin/www`.

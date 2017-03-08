@@ -13,6 +13,10 @@ module.exports = {
             {
                 path: '/',
                 text: 'Home'
+            },
+            {
+                path: '/projects',
+                text: 'Projects'
             }
         ]
     },
