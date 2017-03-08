@@ -11,7 +11,9 @@ const INSTALL_PATH = path.resolve(__dirname, '..');
 
 module.exports = {
 
+    env: process.env.ENV || 'development',
     port: process.env.PORT || 80,
+
     publicDir: 'public',
 
     view: {
