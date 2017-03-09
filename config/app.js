@@ -28,13 +28,16 @@ module.exports = {
                 level: 'info',
                 timestamp: false,
                 stderrLevels: ['error'],
-                colorize: true
+                colorize: true,
+                prettyPrint: true
             }),
 
             new logger.transports.File({
                 filename: path.resolve(INSTALL_PATH, 'logs/errors.log'),
                 level: 'error',
-                json: false
+                timestamp: true,
+                json: false,
+                prettyPrint: true
             })
         ]
     },

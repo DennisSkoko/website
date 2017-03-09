@@ -5,5 +5,5 @@
 var app = require('../lib/app');
 
 app.listen(app.get('settings').port, function() {
-    console.log('Server is listening to port: ' + app.get('settings').port);
+    app.get('logger').info('Server has started', {port: app.get('settings').port});
 });
