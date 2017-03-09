@@ -6,6 +6,7 @@
 require('dotenv').config();
 
 var path = require('path');
+var logger = require('winston');
 
 const INSTALL_PATH = path.resolve(__dirname, '..');
 
@@ -19,6 +20,23 @@ module.exports = {
     view: {
         folder: 'res/views',
         engine: 'pug'
+    },
+
+    logger: {
+        transports: [
+            new logger.transports.Console({
+                level: 'info',
+                timestamp: false,
+                stderrLevels: ['error'],
+                colorize: true
+            }),
+
+            new logger.transports.File({
+                filename: path.resolve(INSTALL_PATH, 'logs/errors.log'),
+                level: 'error',
+                json: false
+            })
+        ]
     },
 
     content: {
