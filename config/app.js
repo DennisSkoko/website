@@ -7,6 +7,7 @@ require('dotenv').config();
 
 var path = require('path');
 var logger = require('winston');
+var moment = require('moment');
 
 const INSTALL_PATH = path.resolve(__dirname, '..');
 
@@ -24,21 +25,24 @@ module.exports = {
 
     logger: {
         transports: [
-            new logger.transports.Console({
-                level: 'info',
-                timestamp: false,
-                stderrLevels: ['error'],
-                colorize: true,
-                prettyPrint: true
-            }),
+            {
+                type: 'Console',
+                options: {
+                    level: 'silly',
+                    timestamp: true,
+                    stderrLevels: ['error']
+                }
+            },
 
-            new logger.transports.File({
-                filename: path.resolve(INSTALL_PATH, 'logs/errors.log'),
-                level: 'error',
-                timestamp: true,
-                json: false,
-                prettyPrint: true
-            })
+            {
+                type: 'File',
+                options: {
+                    filename: path.resolve(INSTALL_PATH, 'logs/errors.log'),
+                    level: 'error',
+                    timestamp: true,
+                    json: false
+                }
+            }
         ]
     },
 
