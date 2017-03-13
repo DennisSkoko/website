@@ -17,12 +17,17 @@ module.exports = {
             {
                 path: '/projects',
                 text: 'Projects'
+            },
+            {
+                path: '/contact',
+                text: 'Contact'
             }
         ]
     },
 
     stylesheets: [
-        'css/bootstrap.css'
+        'css/bootstrap.css',
+        'css/style.css'
     ],
 
     javascript: [

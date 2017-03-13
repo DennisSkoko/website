@@ -6,8 +6,6 @@
 require('dotenv').config();
 
 var path = require('path');
-var logger = require('winston');
-var moment = require('moment');
 
 const INSTALL_PATH = path.resolve(__dirname, '..');
 
@@ -28,7 +26,7 @@ module.exports = {
             {
                 type: 'Console',
                 options: {
-                    level: 'silly',
+                    level: 'info',
                     timestamp: true,
                     stderrLevels: ['error']
                 }
