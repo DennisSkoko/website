@@ -1,18 +1,18 @@
 extends ../layout/default.pug
 
 block content
-    .jumbotron
-        .container
-            h1 Welcome
-            p.
-                Hi, my name is Dennis Skoko and this will be
-                my website where I show off all of my skills.
-                You can view my work at Github or at the projects page.
-            .btn-group
-                a.btn.btn-default.btn-lg(href='https://github.com/DennisSkoko', target='_blank') Github
-                a.btn.btn-primary.btn-lg(href='projects') Projects
-
+  .jumbotron
     .container
-        main
-            .row
-                .col-md-6.col-md-push-3!= content
+      h1 Welcome
+      p.
+        Hi, my name is Dennis Skoko and this will be
+        my website where I show off all of my skills.
+        You can view my work at Github or at the projects page.
+      .btn-group
+        a.btn.btn-default.btn-lg(href='https://github.com/DennisSkoko', target='_blank') Github
+        a.btn.btn-primary.btn-lg(href='projects') Projects
+        
+  .container
+    main
+      .row
+        .col-md-6.col-md-push-3!= content

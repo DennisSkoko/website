@@ -10,50 +10,48 @@ var path = require('path');
 const INSTALL_PATH = path.resolve(__dirname, '..');
 
 module.exports = {
+  env: process.env.ENV || 'development',
+  port: process.env.PORT || 80,
 
-    env: process.env.ENV || 'development',
-    port: process.env.PORT || 80,
+  publicDir: 'public',
 
-    publicDir: 'public',
+  view: {
+    folder: 'res/views',
+    engine: 'pug'
+  },
 
-    view: {
-        folder: 'res/views',
-        engine: 'pug'
-    },
+  session: {
+    secret: process.env.SESSION_SECRET || 'dennisskoko',
+    saveUninitialized: false,
+    resave: false
+  },
 
-    session: {
-        secret: process.env.SESSION_SECRET || 'dennisskoko',
-        saveUninitialized: false,
-        resave: false
-    },
-
-    logger: {
-        transports: [
-            {
-                type: 'Console',
-                options: {
-                    level: 'info',
-                    timestamp: true,
-                    stderrLevels: ['error']
-                }
-            },
-
-            {
-                type: 'File',
-                options: {
-                    filename: path.resolve(INSTALL_PATH, 'logs/errors.log'),
-                    level: 'error',
-                    timestamp: true,
-                    json: false
-                }
-            }
-        ]
-    },
-
-    content: {
-        markdown: {
-            about: path.resolve(INSTALL_PATH, 'res/content/about.md')
+  logger: {
+    transports: [
+      {
+        type: 'Console',
+        options: {
+          level: 'info',
+          timestamp: true,
+          stderrLevels: ['error']
         }
-    }
+      },
 
+      {
+        type: 'File',
+        options: {
+          filename: path.resolve(INSTALL_PATH, 'logs/errors.log'),
+          level: 'error',
+          timestamp: true,
+          json: false
+        }
+      }
+    ]
+  },
+
+  content: {
+    markdown: {
+      about: path.resolve(INSTALL_PATH, 'res/content/about.md')
+    }
+  }
 };

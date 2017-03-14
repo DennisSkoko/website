@@ -4,35 +4,33 @@
 'use strict';
 
 module.exports = {
+  title: 'Dennis Skoko',
+  charset: 'utf-8',
 
-    title: 'Dennis Skoko',
-    charset: 'utf-8',
-
-    nav: {
-        links: [
-            {
-                path: '/',
-                text: 'Home'
-            },
-            {
-                path: '/projects',
-                text: 'Projects'
-            },
-            {
-                path: '/contact',
-                text: 'Contact'
-            }
-        ]
-    },
-
-    stylesheets: [
-        'css/bootstrap.css',
-        'css/style.css'
-    ],
-
-    javascript: [
-        'js/jquery.js',
-        'js/bootstrap.js'
+  nav: {
+    links: [
+      {
+        path: '/',
+        text: 'Home'
+      },
+      {
+        path: '/projects',
+        text: 'Projects'
+      },
+      {
+        path: '/contact',
+        text: 'Contact'
+      }
     ]
+  },
 
+  stylesheets: [
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+    'css/style.css'
+  ],
+
+  javascript: [
+    'js/jquery.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+  ]
 };
