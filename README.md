@@ -16,6 +16,7 @@ Following values can be set (format: KEY=VALUE):
 
 - ENV - If the application will be executed in development or production mode. (Default: *development*)
 - PORT - Which port the server will listen to. (Default: *80*)
+- SESSION_SECRET - This is the secret used to sign the session ID cookie.
 
 ## How to run
 To start the server then execute the following `node bin/www`.

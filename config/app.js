@@ -21,6 +21,12 @@ module.exports = {
         engine: 'pug'
     },
 
+    session: {
+        secret: process.env.SESSION_SECRET || 'dennisskoko',
+        saveUninitialized: false,
+        resave: false
+    },
+
     logger: {
         transports: [
             {
