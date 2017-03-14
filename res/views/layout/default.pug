@@ -9,6 +9,9 @@ html
       link(rel='stylesheet', href=style)
   body
     include incl/navbar.pug
+    
+    if flash
+      include incl/flash.pug
 
     block content
 
