@@ -49,6 +49,14 @@ module.exports = {
     ]
   },
 
+  mailer: {
+    service: process.env.EMAIL_PROVIDER,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  },
+
   content: {
     markdown: {
       about: path.resolve(INSTALL_PATH, 'res/content/about.md')
