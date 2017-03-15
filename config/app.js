@@ -22,6 +22,7 @@ module.exports = {
 
   session: {
     secret: process.env.SESSION_SECRET || 'dennisskoko',
+    path: path.resolve(INSTALL_PATH, 'cache/sessions'),
     saveUninitialized: false,
     resave: false
   },

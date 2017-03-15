@@ -4,5 +4,8 @@ node_modules
 # Logs
 logs/*.log
 
+# Cache
+cache
+
 # Environment
 .env
