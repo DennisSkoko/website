@@ -20,7 +20,7 @@ module.exports = {
   view: {
     folder: path.resolve(root, 'res/views'),
     engine: 'pug',
-    pretty: process.env.NODE_ENV === 'production'
+    pretty: process.env.NODE_ENV !== 'production'
   },
 
   logger: {

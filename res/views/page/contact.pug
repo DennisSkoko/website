@@ -1,0 +1,24 @@
+extends ../layout/index.pug
+
+block content
+  .container
+    .row
+      .col-md-6.col-md-push-3
+        h2 Contact
+        hr
+            
+        .well.well-lg
+          form(method='post')
+            .form-group
+              label(for='input-email') Email
+              input.form-control(type='email', name='email', id='input-email', required)
+                    
+            .form-group
+              label(for='input-subject') Subject
+              input.form-control(name='subject', id='input-subject', minlength='3', maxlength='35', required)
+                    
+            .form-group
+              label(for='input-message') Message
+              textarea.form-control(name='message', id='input-message', rows='10', minlength='5', maxlength='800', required)
+                    
+            button.btn.btn-block.btn-lg.btn-default(type='submit') Send
