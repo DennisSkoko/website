@@ -8,6 +8,8 @@ html(lang=settings.theme.lang)
 
     base(href='/')
     title= (title ? title + ' - ' : '') + settings.theme.title
+    
+    link(rel='shortcut icon', type='image/x-icon', href='/favicon.ico')
 
     each style in settings.theme.stylesheets
       link(rel='stylesheet', href=style)
