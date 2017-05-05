@@ -8,6 +8,15 @@ module.exports = {
   charset: 'utf-8',
   lang: 'en',
 
+  meta: {
+    viewport: 'width=device-width, initial-scale=1',
+    description: 'Hi, my name is Dennis Skoko and this is my website where I' +
+      ' will show off all of my skills.',
+    keywords: [
+      'Dennis Skoko', 'Web development', 'Programmer', 'Node.js', 'PHP', 'Java'
+    ].join()
+  },
+
   nav: {
     links: [
       { path: '/', text: 'Home' },

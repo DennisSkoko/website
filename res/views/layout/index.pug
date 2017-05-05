@@ -2,6 +2,10 @@ doctype html
 html(lang=settings.theme.lang)
   head
     meta(charset=settings.theme.charset)
+
+    for value, name in settings.theme.meta
+      meta(name=name, value=value)
+
     base(href='/')
     title= (title ? title + ' - ' : '') + settings.theme.title
 
