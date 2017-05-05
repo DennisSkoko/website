@@ -1,11 +1,6 @@
 # Node.js
 node_modules
-
-# Logs
-logs/*.log
-
-# Cache
-cache
+npm-debug.log
 
 # Environment
 .env

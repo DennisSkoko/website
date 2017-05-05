@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang=settings.theme.lang)
   head
     meta(charset=settings.theme.charset)
     base(href='/')
@@ -7,11 +7,9 @@ html
 
     each style in settings.theme.stylesheets
       link(rel='stylesheet', href=style)
+
   body
     include incl/navbar.pug
-    
-    if flash
-      include incl/flash.pug
 
     block content
 

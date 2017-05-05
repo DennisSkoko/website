@@ -1,6 +1,6 @@
 nav.navbar.navbar-default
   .container
-    
+
     .navbar-header
       button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false')
         span.sr-only Toggle navigation
@@ -8,13 +8,11 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/')= settings.theme.title
-      
+
     .collapse.navbar-collapse#navbar
       ul.nav.navbar-nav.navbar-right
         each link, index in settings.theme.nav.links
           if link.path == reqPath
-            li.active
-              a(href=link.path)= link.text
+            li.active: a(href=link.path)= link.text
           else
-            li
-              a(href=link.path)= link.text
+            li: a(href=link.path)= link.text
