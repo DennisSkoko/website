@@ -3,7 +3,7 @@
 
 const app = require('../lib/app')
 
-app.listen(app.get('settings').port, function () {
+app.listen(app.get('settings').port, () => {
   app.get('logger').info('Server has started', {
     port: app.get('settings').port
   })
