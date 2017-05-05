@@ -18,7 +18,8 @@ module.exports = {
   },
 
   stylesheets: [
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    '/css/bootstrap.css',
+    '/css/style.css'
   ],
 
   javascript: [
