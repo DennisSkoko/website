@@ -16,7 +16,7 @@ Following values can be set (format: KEY=VALUE):
 
 - **NODE_ENV** - If the application will be executed in development or production mode. (Default: *development*)
 - **PORT** - Which port the server will listen to. (Default: *80*)
-- **LOG_LEVEL** - The minimum log level the logger will output. (Default *debug*)
+- **LOG_LEVEL** - The minimum log level the logger will output. (Default *info*)
 
 ## How to run
 To start the server then execute `npm start`.
