@@ -11,6 +11,9 @@ html(lang=settings.theme.lang)
   body
     include incl/navbar.pug
 
+    if flash
+      include incl/flash.pug
+
     block content
 
     include incl/footer.pug
