@@ -4,7 +4,7 @@ html(lang=settings.theme.lang)
     meta(charset=settings.theme.charset)
 
     for value, name in settings.theme.meta
-      meta(name=name, value=value)
+      meta(name=name, content=value)
 
     base(href='/')
     title= (title ? title + ' - ' : '') + settings.theme.title
