@@ -4,3 +4,6 @@ npm-debug.log
 
 # Environment
 .env
+
+# Webpack
+dist
