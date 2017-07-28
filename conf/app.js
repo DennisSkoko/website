@@ -15,29 +15,12 @@ module.exports = {
   env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 80,
 
-  publicDir: path.resolve(root, 'public'),
-
-  view: {
-    folder: path.resolve(root, 'res/views'),
-    engine: 'pug',
-    pretty: process.env.NODE_ENV !== 'production'
-  },
+  publicDir: path.resolve(root, 'dist'),
 
   logger: {
     level: process.env.LOG_LEVEL || 'info',
     timestamp: true,
     colorize: true,
     stderrLevels: ['error']
-  },
-
-  mailer: {
-    service: process.env.EMAIL_PROVIDER || 'Hotmail',
-    auth: {
-      user: process.env.EMAIL_USER || 'something@example.com',
-      pass: process.env.EMAIL_PASS || 'secret'
-    },
-    to: {
-      email: process.env.EMAIL_SENDTO || 'receiver@example.com'
-    }
   }
 }

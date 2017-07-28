@@ -24,6 +24,8 @@ Following values can be set (format: KEY=VALUE):
 
 ## How to run
 To start the server then execute `npm start`.
+If you are developing you can execute `npm run start:w` instead.
+Then the process will watch the files and restart whenever you edit a file.
 
 ## Testing
 To test the application then execute `npm test`.

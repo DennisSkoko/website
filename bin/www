@@ -2,8 +2,11 @@
 'use strict'
 
 const app = require('../lib/app')
+const http = require('http')
 
-app.listen(app.get('settings').port, () => {
+const server = http.createServer(app)
+
+server.listen(app.get('settings').port, () => {
   app.get('logger').info('Server has started', {
     port: app.get('settings').port
   })
