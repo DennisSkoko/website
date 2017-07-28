@@ -22,6 +22,21 @@ Following values can be set (format: KEY=VALUE):
 - **EMAIL_PASS** - The password for authentication. (Default *secret*)
 - **EMAIL_SENDTO** - Which email address to send mail to at the contact page. (Default *receiver@example.com*)
 
+## Building
+Before you can run the application you will need to build the project.
+You can do this in three different ways:
+
+```bash
+# Will build it once
+npm run build
+
+# To build in production
+npm run build:p
+
+# Or if you are developing
+npm run build:w
+```
+
 ## How to run
 To start the server then execute `npm start`.
 If you are developing you can execute `npm run start:w` instead.
