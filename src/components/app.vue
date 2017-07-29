@@ -47,8 +47,17 @@ $theme = {
   success: $green.base
 }
 
+$grid-breakpoints = {
+  xs: 0
+  sm: 600px
+  md: 1024px
+  lg: 1024px
+  xl: 1024px
+}
+
 @require '../../node_modules/vuetify/src/stylus/main.styl'
 
 html
   overflow-y: auto
+
 </style>
