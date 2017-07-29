@@ -20,6 +20,8 @@
           v-list-tile(:to='{ name: "projects" }', active-class='primary--text', exact) Projects
           v-list-tile(:to='{ name: "contact" }', active-class='primary--text', exact) Contact
     router-view
+    footer.grey.darken-4.pa-3
+      .text-xs-center &copy; {{ new Date().getFullYear() }} Dennis Skoko
 </template>
 
 <script>
