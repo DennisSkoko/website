@@ -2,7 +2,7 @@
   "author": "Dennis Skoko <dennis.skoko@hotmail.com> (http://dennisskoko.se)",
   "scripts": {
     "start": "node bin/www",
-    "start:w": "nodemon bin/www --ignore src --ignore dist",
+    "start:w": "nodemon bin/www --ignore src --ignore dist --ignore res",
     "build": "webpack --progress --hide-modules",
     "build:w": "webpack --watch --progress --hide-modules",
     "build:p": "webpack -p --progress --hide-modules",
