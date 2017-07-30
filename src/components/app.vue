@@ -1,7 +1,7 @@
 <template lang="pug">
-  v-app(dark)
+  v-app
     nav
-      v-toolbar.primary
+      v-toolbar.primary(dark)
         v-toolbar-side-icon.hidden-sm-and-up(@click='navActive = !navActive')
         v-toolbar-title Dennis Skoko
         v-spacer
@@ -10,7 +10,7 @@
           v-btn(:to='{ name: "projects" }', flat, exact) Projects
           v-btn(:to='{ name: "contact" }', flat, exact) Contact
       v-navigation-drawer(v-model='navActive', temporary)
-        v-toolbar.primary
+        v-toolbar.primary(dark)
           v-toolbar-title Dennis Skoko
           v-spacer
           v-btn(icon, @click='navActive = !navActive')
@@ -23,7 +23,7 @@
     v-container
       footer.pa-3
         v-divider.mb-2
-        .text-xs-center.grey--text &copy; {{ new Date().getFullYear() }} Dennis Skoko
+        .text-xs-center &copy; {{ new Date().getFullYear() }} Dennis Skoko
 </template>
 
 <script>

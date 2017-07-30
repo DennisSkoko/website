@@ -2,9 +2,9 @@
   v-container
     v-layout(justify-center)
       v-flex(xs12, md8)
-        form.grey.darken-3.pa-3.mt-4.elevation-3(v-on:submit.prevent='submit()')
+        form.grey.lighten-4.pa-3.mt-4.elevation-3(v-on:submit.prevent='submit()')
           .text-xs-center
-            h3.white--text Contact
+            h3 Contact
           v-text-field(label='Email', v-model='email', required)
 
           v-text-field(

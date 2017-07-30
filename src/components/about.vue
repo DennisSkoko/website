@@ -1,9 +1,9 @@
 <template lang="pug">
   main
     div
-      .jumbotron.grey.darken-3.pa-4
+      .jumbotron.grey.lighten-3.pa-4
         v-container
-          h1.white--text Welcome
+          h1 Welcome
           p.headline.
             Hi, my name is Dennis Skoko and this is my website where I show will off all
             of my skills. You can view my work at LinkedIn, Github or at the projects page.
@@ -16,7 +16,7 @@
           v-flex(sm6)
             article
               header
-                h4.white--text About
+                h4 About
               p.
                 I live in Karlskrona, Sweden and I'm a student at the university of
                 #[a(href='https://www.bth.se/eng/', target='_blank') Blekinge Institute of Technology]
