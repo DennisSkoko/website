@@ -14,13 +14,20 @@
         form.pa-3.mt-4(v-on:submit.prevent='submit()')
           .text-xs-center
             h3 Contact
-          v-text-field(label='Email', v-model='form.email', required)
+          v-text-field(
+            type='email',
+            label='Email',
+            v-model='form.email',
+            :disabled='loading',
+            required
+          )
 
           v-text-field(
             label='Subject',
             counter, max='25',
             maxlength='25',
             v-model='form.subject',
+            :disabled='loading',
             required
           )
 
@@ -33,9 +40,10 @@
             max='250',
             maxlength='250'
             v-model='form.message',
+            :disabled='loading',
             required
           )
-          v-btn(block, outline, type='submit') Submit
+          v-btn(block, outline, type='submit', :disabled='loading', :loading='loading') Submit
 </template>
 
 <script>
@@ -44,6 +52,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      loading: false,
       alerts: {
         error: false,
         invalid: false,
@@ -58,13 +67,15 @@ export default {
   },
   methods: {
     alert (status) {
-      for (let key in alert) {
+      for (let key in this.alerts) {
         this.alerts[key] = false
       }
-      
+
       this.alerts[status] = true
     },
     submit () {
+      this.loading = true
+
       axios.post('api/send-mail', this.form)
         .then(result => {
           this.alert('success')
@@ -76,6 +87,9 @@ export default {
             console.log(err)
             this.alert('error')
           }
+        })
+        .then(() => {
+          this.loading = false
         })
     }
   }
