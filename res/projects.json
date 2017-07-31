@@ -16,7 +16,7 @@
     "id": "troddler",
     "title": "Troddler",
     "tags": "electron,node.js,vue",
-    "description": "I created this project on my spare time to learn Electron and Vue. When I worked at Ericsson I created a similar project but with Anuglar but I didn't want to show the source code of that project I instead created a similar one but with Vue. The data is only random generated and doesn't actually test a database.",
+    "description": "I created this project on my spare time to learn Electron and Vue. When I worked at Ericsson I created a similar project but with Anuglar but I didn't want to show the source code of that project, so I instead created a similar one but with Vue. The data is only random generated and doesn't actually test a database.",
     "website": "https://github.com/DennisSkoko/troddler",
     "images": [
       "graph.jpg",
