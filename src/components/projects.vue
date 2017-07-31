@@ -2,7 +2,7 @@
   v-container
     v-layout(wrap)
       v-flex(xs12, md6, v-for='project in projects', :key='project.id')
-        v-card.my-3
+        v-card.my-3.mx-2
           v-card-media
             v-carousel(:left-control-icon='false', :right-control-icon='false')
               v-carousel-item(
