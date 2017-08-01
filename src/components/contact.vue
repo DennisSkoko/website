@@ -11,7 +11,7 @@
           Please try again or report the problem.
     v-layout(justify-center, v-if='!alerts.success')
       v-flex(xs12, md8)
-        form.pa-3.mt-4(v-on:submit.prevent='submit()')
+        form.elevation-3.pa-3.mt-4(v-on:submit.prevent='submit()')
           .text-xs-center
             h3 Contact
           v-text-field(
@@ -97,10 +97,6 @@ export default {
 </script>
 
 <style lang="stylus">
-form
-  border: 1px solid rgba(0, 0, 0, 0.2)
-  border-radius: 5px
-
 .input-group--multi-line textarea
   resize: none
 </style>
