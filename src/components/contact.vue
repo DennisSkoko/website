@@ -11,7 +11,7 @@
           Please try again or report the problem.
     v-layout(justify-center, v-if='!alerts.success')
       v-flex(xs12, md8)
-        form.elevation-3.pa-3.mt-4(v-on:submit.prevent='submit()')
+        form.pa-3.mt-4(v-on:submit.prevent='submit()')
           .text-xs-center
             h3 Contact
           v-text-field(
