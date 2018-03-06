@@ -2,5 +2,4 @@
 
 const nodemailer = require('nodemailer')
 
-module.exports = ({ settings }) =>
-  nodemailer.createTransport(settings.mailer)
+module.exports = ({ settings }) => nodemailer.createTransport(settings.mailer)

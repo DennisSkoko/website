@@ -8,7 +8,7 @@ module.exports = ({ settings, middlewares }) => [
   helmet(),
   express.json(),
   express.urlencoded({ extended: true }),
-  // Object.values(middlewares.routers),
+  Object.values(middlewares.routers),
   middlewares.notFound,
   middlewares.error
 ]

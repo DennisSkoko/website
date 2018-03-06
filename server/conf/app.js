@@ -24,7 +24,7 @@ module.exports = () => ({
       user: process.env.EMAIL_USER || 'something@example.com',
       pass: process.env.EMAIL_PASS || 'secret'
     },
-    receiver: process.env.EMAIL_SENDTO || 'receiver@example.com'
+    receiver: process.env.EMAIL_RECEIVER || 'receiver@example.com'
   },
 
   http: {

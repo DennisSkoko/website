@@ -21,7 +21,9 @@ module.exports = loader([
       { name: 'notFound', path: 'not-found' },
       {
         path: 'routers',
-        modules: []
+        modules: [
+          { path: 'mailer' }
+        ]
       }
     ]
   },
