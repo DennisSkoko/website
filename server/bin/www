@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+'use strict'
+
+const ctx = require('../src')
+
+ctx.http.listen(ctx.settings.http.port, () => {
+  ctx.logger.info('HTTP server has started', {
+    port: ctx.settings.http.port
+  })
+})
