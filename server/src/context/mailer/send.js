@@ -1,12 +1,14 @@
 'use strict'
 
-module.exports = ({ settings, transporter }) =>
-  ({ subject, text }) => new Promise((resolve, reject) => {
-    const message = {
+module.exports = ({ settings, template, transporter }) => {
+  const format = template('email')
+
+  return ({ from, subject, message }) => new Promise((resolve, reject) => {
+    message = {
       from: settings.mailer.auth.user,
       to: settings.mailer.receiver,
       subject,
-      text
+      text: format({ message, from })
     }
 
     transporter.sendMail(message, err => {
@@ -14,3 +16,4 @@ module.exports = ({ settings, transporter }) =>
       else resolve()
     })
   })
+}

@@ -13,6 +13,11 @@ module.exports = () => ({
     level: process.env.LOG_LEVEL || 'info'
   },
 
+  template: {
+    encoding: 'utf8',
+    path: path.join(root, 'res', 'templates')
+  },
+
   mailer: {
     service: process.env.EMAIL_PROVIDER || 'Hotmail',
     auth: {

@@ -5,6 +5,7 @@ const loader = require('./util/context-loader')
 module.exports = loader([
   { name: 'settings', path: '../conf/app' },
   { path: 'context/logger' },
+  { path: 'context/template' },
   {
     path: 'context/mailer',
     modules: [
