@@ -14,7 +14,7 @@ LOG_LEVEL      | info                  | The minimum log level the logger will o
 EMAIL_PROVIDER | Hotmail               | Which provider to use when setting up the transporter using [Nodemailer](https://nodemailer.com/smtp/well-known/).
 EMAIL_USER     | something@example.com | The username for authentication.
 EMAIL_PASS     | secret                | The password for authentication.
-EMAIL_SENDTO   | receiver@example.com  | Which email address to send mail to at the contact page.
+EMAIL_RECEIVER | receiver@example.com  | Which email address to send mail to at the contact page.
 
 ## Building
 Before you can run the application you will need to build the project.

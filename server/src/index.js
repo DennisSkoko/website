@@ -6,6 +6,13 @@ module.exports = loader([
   { name: 'settings', path: '../conf/app' },
   { path: 'context/logger' },
   {
+    path: 'context/mailer',
+    modules: [
+      { path: 'transporter' },
+      { path: 'send' }
+    ]
+  },
+  {
     path: 'middlewares',
     modules: [
       { path: 'error' },
