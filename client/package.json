@@ -1,9 +1,5 @@
 {
-  "name": "website",
-  "version": "1.0.0",
-  "description": "This is a website for my personal web server.",
   "author": "Dennis Skoko <dennis.skoko@hotmail.com>",
-  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
