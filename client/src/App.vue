@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       links: [
-        { text: 'Home', to: '/home' },
+        { text: 'Home', to: { name: 'Home' } },
         { text: 'Portfolio', to: '/portfolio' },
         { text: 'Contact', to: '/contact' }
       ]
