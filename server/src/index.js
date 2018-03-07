@@ -24,7 +24,7 @@ module.exports = loader([
         path: 'routers',
         modules: [
           { path: 'mailer' },
-          { path: 'portfolio' }
+          { path: 'projects' }
         ]
       }
     ]

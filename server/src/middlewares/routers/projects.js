@@ -5,10 +5,10 @@ const express = require('express')
 module.exports = ({ storage }) => {
   const router = express.Router()
 
-  router.get('/api/portfolio', (req, res, next) => {
-    storage('portfolio')
-      .then(portfolio => {
-        res.send(portfolio)
+  router.get('/api/projects', (req, res, next) => {
+    storage('projects')
+      .then(projects => {
+        res.send(projects)
       })
       .catch(next)
   })
