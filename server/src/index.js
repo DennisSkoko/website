@@ -6,6 +6,7 @@ module.exports = loader([
   { name: 'settings', path: '../conf/app' },
   { path: 'context/logger' },
   { path: 'context/template' },
+  { path: 'context/storage' },
   {
     path: 'context/mailer',
     modules: [
@@ -22,7 +23,8 @@ module.exports = loader([
       {
         path: 'routers',
         modules: [
-          { path: 'mailer' }
+          { path: 'mailer' },
+          { path: 'portfolio' }
         ]
       }
     ]
