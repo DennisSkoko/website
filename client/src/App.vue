@@ -21,7 +21,7 @@ export default {
     return {
       links: [
         { text: 'Welcome', to: { name: 'Welcome' } },
-        { text: 'Portfolio', to: '/portfolio' },
+        { text: 'Projects', to: { name: 'Projects' } },
         { text: 'Contact', to: '/contact' }
       ]
     }
