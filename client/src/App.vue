@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .container
         span.navbar-brand.mb-0.h1 Dennis Skoko
         button.navbar-toggler(data-toggle='collapse' data-target='#navbarNav')
