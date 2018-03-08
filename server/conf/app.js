@@ -9,6 +9,8 @@ require('dotenv').config({
 })
 
 module.exports = () => ({
+  serve: path.resolve(root, '..', 'client', 'dist'),
+
   logger: {
     level: process.env.LOG_LEVEL || 'info'
   },
