@@ -12,7 +12,7 @@
         p.mb-0
           a.mx-1.btn.btn-outline-dark.btn-lg(href='https://github.com/DennisSkoko', target='_blank') Github
           a.mx-1.btn.btn-outline-dark.btn-lg(href='https://www.linkedin.com/in/dennis-skoko-a99418128/', target='_blank') LinkedIn
-          router-link.mx-1.btn.btn-outline-dark.btn-lg(to='/portfolio') Portfolio
+          router-link.mx-1.btn.btn-outline-dark.btn-lg(to='/portfolio') Projects
 </template>
 
 <script>
