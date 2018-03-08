@@ -6,7 +6,7 @@
         The projects listed here are my projects that stands out. If you wish
         to view all of my work then you can take a look at my Github page.
 
-    .container: .row(v-if='projects.length')
+    .container: .row.justify-content-center
       .col-12.col-md-6.col-xl-4(v-for='project in projects')
         .card: .card-body
           h2.mb-3.text-center.card-title {{ project.title }}
