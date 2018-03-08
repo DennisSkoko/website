@@ -27,7 +27,7 @@
             I mainly focus on web development. My passion is back-end where
             I create API with Node.js or PHP but since I work alone,
             I've been doing front-end as well. I love using Vue but I worked
-            on a big project alone with Angular where I got to learn a lot with SPA frameworks.
+            on a big project alone with Angular where I got to learn a lot with front-end frameworks.
 
           p.
             Since I'm not a good designer, I usually use design frameworks
