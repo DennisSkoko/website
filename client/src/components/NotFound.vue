@@ -1,7 +1,6 @@
 <template lang="pug">
   .not-found
-    .jumbotron.jumbotron-fluid
-      .container
+    .jumbotron.jumbotron-fluid: .container
         h1.display-1 Not Found!
         p.lead.
           I'm sorry but I couldn't find what you were looking for.

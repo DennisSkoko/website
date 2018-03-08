@@ -1,11 +1,10 @@
 <template lang="pug">
   .projects
-    .jumbotron.jumbotron-fluid
-      .container
-        h1.display-1 Projects
-        p.lead.mb-0.
-          The projects listed here are my projects that stands out. If you wish
-          to view all of my work then you can take a look at my Github page.
+    .jumbotron.jumbotron-fluid: .container
+      h1.display-1 Projects
+      p.lead.mb-0.
+        The projects listed here are my projects that stands out. If you wish
+        to view all of my work then you can take a look at my Github page.
 
     .container: .row(v-if='projects.length')
       .col-12.col-md-6.col-xl-4(v-for='project in projects')
