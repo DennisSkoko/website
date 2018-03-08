@@ -18,11 +18,6 @@ module.exports = () => ({
     path: path.join(root, 'res', 'templates')
   },
 
-  storage: {
-    encoding: 'utf8',
-    path: path.join(root, 'res', 'storage')
-  },
-
   mailer: {
     service: process.env.EMAIL_PROVIDER || 'Hotmail',
     auth: {
