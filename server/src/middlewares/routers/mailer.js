@@ -11,10 +11,10 @@ module.exports = ({ mailer }) => {
       .trim()
       .not().isEmpty()
       .isEmail(),
-    body('subject', 'must be between 10 and 30 characters long')
+    body('subject', 'must be between 5 and 30 characters long')
       .trim()
       .not().isEmpty()
-      .isLength({ min: 3, max: 30 }),
+      .isLength({ min: 5, max: 30 }),
     body('message', 'must be between 10 and 150 characters long')
       .trim()
       .not().isEmpty()
