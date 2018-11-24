@@ -1,9 +1,10 @@
 import React from 'react'
+import Heading from '../components/Heading'
 
 function Index () {
   return (
     <main>
-      <h1>Hello</h1>
+      <Heading>Welcome</Heading>
     </main>
   )
 }
