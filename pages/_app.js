@@ -1,5 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import ThemeProvider from '../style/ThemeProvider'
 
 class MyApp extends App {
   render () {
@@ -7,7 +8,9 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Component {...pageProps} />
+        <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </Container>
     )
   }
