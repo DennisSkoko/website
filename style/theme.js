@@ -1,24 +1,36 @@
+import { darken, lighten } from 'polished'
+
+const color = {
+  primary: 'steelblue'
+}
+
 const theme = {
   container: {
     width: '1280px'
   },
 
   color: {
+    primary: {
+      dark: darken(0.1, color.primary),
+      base: color.primary,
+      light: lighten(0.1, color.primary)
+    },
+
     black: {
-      dark: '#000',
-      base: '#222',
-      light: '#444'
+      dark: 'rgb(0, 0, 0)',
+      base: 'rgb(15, 15, 15)',
+      light: 'rgb(30, 30, 30)'
     },
 
     white: {
-      dark: '#ddd',
-      base: '#eee',
-      light: '#fff'
+      dark: 'rgb(245, 245, 245)',
+      base: 'rgb(250, 250, 250)',
+      light: 'rgb(255, 255, 255)'
     }
   },
 
   font: {
-    baseSize: '1.1rem',
+    baseSize: '1.2rem',
 
     family: {
       heading: 'sans-serif',
@@ -34,6 +46,14 @@ const theme = {
     lead: { size: '1.25rem' },
     body: { size: '1rem' },
     small: { size: '0.75rem' }
+  },
+
+  spacing: {
+    xs: '.375em',
+    sm: '.5em',
+    md: '1em',
+    lg: '2em',
+    xl: '3em'
   }
 }
 

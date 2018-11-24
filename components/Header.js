@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import Container from './Container'
 
 const StyledHeader = styled.header`
-  border-bottom: 1px solid black;
   padding: .75rem 0;
+  box-shadow: 0 5px 5px ${({ theme }) => theme.color.white.dark};
+  background-color: ${({ theme }) => theme.color.white.light};
+  color: ${({ theme }) => theme.color.black.base};
 `
 
 const StyledContainer = styled(Container)`
