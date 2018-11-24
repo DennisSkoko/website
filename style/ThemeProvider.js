@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { ThemeProvider as Provider } from 'styled-components'
 import theme from './theme'
 
@@ -8,6 +9,10 @@ function ThemeProvider ({ children }) {
       {children}
     </Provider>
   )
+}
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
 export default ThemeProvider
