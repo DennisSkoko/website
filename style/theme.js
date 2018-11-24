@@ -30,7 +30,7 @@ const theme = {
   },
 
   font: {
-    baseSize: '1.2rem',
+    baseSize: '1.1rem',
 
     family: {
       title: '\'Caveat\', cursive',
