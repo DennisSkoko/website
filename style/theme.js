@@ -33,8 +33,9 @@ const theme = {
     baseSize: '1.2rem',
 
     family: {
-      heading: 'sans-serif',
-      body: 'sans-serif'
+      title: '\'Caveat\', cursive',
+      heading: '\'Montserrat\', sans-serif',
+      body: '\'Montserrat\', sans-serif'
     },
 
     h1: { size: '2.5rem' },
