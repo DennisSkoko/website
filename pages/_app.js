@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import HeaderTitle from '../components/HeaderTitle'
 import HeaderNav from '../components/HeaderNav'
 import HeaderNavLink from '../components/HeaderNavLink'
+import HeaderNavLinkSocial from '../components/HeaderNavLinkSocial'
 import GlobalStyles from '../style/GlobalStyles'
 import ThemeProvider from '../style/ThemeProvider'
 
@@ -25,12 +26,16 @@ class MyApp extends App {
               </HeaderNav>
               <HeaderTitle>Dennis Skoko</HeaderTitle>
               <HeaderNav>
-                <HeaderNavLink href='https://www.linkedin.com/in/dennis-skoko/'>
-                  LinkedIn
-                </HeaderNavLink>
-                <HeaderNavLink href='https://github.com/DennisSkoko/'>
-                  Github
-                </HeaderNavLink>
+                <HeaderNavLinkSocial
+                  href='https://www.linkedin.com/in/dennis-skoko/'
+                  icon={['fab', 'linkedin']}
+                  text='LinkedIn Page'
+                />
+                <HeaderNavLinkSocial
+                  href='https://github.com/DennisSkoko/'
+                  icon={['fab', 'github']}
+                  text='Github Page'
+                />
               </HeaderNav>
             </Header>
 

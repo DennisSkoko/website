@@ -24,11 +24,14 @@ const StyledA = styled.a`
   }
 `
 
-function HeaderNavLink ({ router, children, ...props }) {
+function HeaderNavLink ({ router, children, target, className, ...props }) {
   return (
     <li>
       <Link {...props} passHref>
-        <StyledA className={router.pathname === props.href && 'selected'}>
+        <StyledA
+          className={`${className} ${router.pathname === props.href && 'selected'}`}
+          target={target}
+        >
           {children}
         </StyledA>
       </Link>
