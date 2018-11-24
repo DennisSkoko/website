@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import { withRouter } from 'next/router'
 import styled from 'styled-components'
 import { transitions } from 'polished'
 
@@ -23,11 +24,13 @@ const StyledA = styled.a`
   }
 `
 
-function HeaderNavLink ({ children, ...props }) {
+function HeaderNavLink ({ router, children, ...props }) {
   return (
     <li>
       <Link {...props} passHref>
-        <StyledA>{children}</StyledA>
+        <StyledA className={router.pathname === props.href && 'selected'}>
+          {children}
+        </StyledA>
       </Link>
     </li>
   )
@@ -37,4 +40,4 @@ HeaderNavLink.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default HeaderNavLink
+export default withRouter(HeaderNavLink)
