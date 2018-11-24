@@ -1,11 +1,14 @@
 import React from 'react'
 import Heading from '../components/Heading'
+import Container from '../components/Container'
 
 function Index () {
   return (
-    <main>
-      <Heading>Welcome</Heading>
-    </main>
+    <Container>
+      <main>
+        <Heading>Welcome</Heading>
+      </main>
+    </Container>
   )
 }
 
