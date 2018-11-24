@@ -1,30 +1,29 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Heading = styled.h1`
-  font-family: ${({ theme }) => theme.font.family.heading};
-  font-size: ${({ theme, as }) => theme.font[as].size};
-  font-weight: normal;
+const Text = styled.p`
+  font-family: ${({ theme }) => theme.font.family.body};
+  font-size: ${({ theme, type }) => theme.font[type].size};
   color: ${({ theme, inverted }) => theme.color[inverted ? 'white' : 'black'].base};
   text-align: ${({ centered }) => centered ? 'center' : 'left'};
   margin-top: ${({ marginTop }) => marginTop ? '1em' : '0'};
-  margin-bottom: ${({ marginBottom }) => marginBottom ? '.5em' : '0'};
+  margin-bottom: ${({ marginBottom }) => marginBottom ? '1em' : '0'};
 `
 
-Heading.propTypes = {
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+Text.propTypes = {
+  type: PropTypes.oneOf(['lead', 'body', 'small']),
   centered: PropTypes.bool,
   marginTop: PropTypes.bool,
   marginBottom: PropTypes.bool,
   inverted: PropTypes.bool
 }
 
-Heading.defaultProps = {
-  as: 'h1',
+Text.defaultProps = {
+  type: 'body',
   centered: false,
   marginTop: false,
   marginBottom: true,
   inverted: false
 }
 
-export default Heading
+export default Text

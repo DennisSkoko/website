@@ -1,6 +1,6 @@
 import React from 'react'
-import Heading from '../components/Heading'
 import Container from '../components/Container'
+import Heading from '../components/Heading'
 
 function Index () {
   return (
