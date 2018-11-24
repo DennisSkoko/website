@@ -2,6 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+const StyledNav = styled.nav`
+  z-index: 1;
+`
+
 const StyledUl = styled.ul`
   list-style: none;
   display: flex;
@@ -11,11 +15,11 @@ const StyledUl = styled.ul`
 
 function HeaderNav ({ children }) {
   return (
-    <nav>
+    <StyledNav>
       <StyledUl>
         {children}
       </StyledUl>
-    </nav>
+    </StyledNav>
   )
 }
 
