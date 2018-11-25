@@ -5,10 +5,9 @@ import Container from './Container'
 
 const StyledHeader = styled.header`
   position: relative;
-  padding: .75rem 0;
-  box-shadow: 0 5px 5px ${({ theme }) => theme.color.white.dark};
-  background-color: ${({ theme }) => theme.color.white.light};
-  color: ${({ theme }) => theme.color.black.base};
+  padding: ${({ theme }) => theme.spacing.md} 0;
+  background-color: ${({ theme }) => theme.color.black.base};
+  color: ${({ theme }) => theme.color.white.base};
 `
 
 const StyledContainer = styled(Container)`
