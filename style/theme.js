@@ -1,7 +1,8 @@
 import { darken, lighten } from 'polished'
 
 const color = {
-  primary: 'steelblue'
+  primary: 'cyan',
+  secondary: 'lightgreen'
 }
 
 const theme = {
@@ -14,6 +15,12 @@ const theme = {
       dark: darken(0.1, color.primary),
       base: color.primary,
       light: lighten(0.1, color.primary)
+    },
+
+    secondary: {
+      dark: darken(0.1, color.secondary),
+      base: color.secondary,
+      light: lighten(0.1, color.secondary)
     },
 
     black: {
@@ -55,6 +62,12 @@ const theme = {
     md: '1em',
     lg: '2em',
     xl: '3em'
+  },
+
+  transition: {
+    quick: '150ms',
+    normal: '250ms',
+    slow: '450ms'
   }
 }
 

@@ -12,7 +12,7 @@ const StyledA = styled.a`
   text-decoration: none;
   color: inherit;
   font-family: ${({ theme }) => theme.font.family.body};
-  ${transitions(['color', 'transform'], '250ms')};
+  ${({ theme }) => transitions(['color', 'transform'], theme.transition.normal)};
 
   &:active {
     transform: scale(.95);
