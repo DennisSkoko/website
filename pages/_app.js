@@ -20,9 +20,8 @@ class MyApp extends App {
 
             <Header>
               <HeaderNav>
-                <HeaderNavLink href='/'>Home</HeaderNavLink>
+                <HeaderNavLink href='/'>About</HeaderNavLink>
                 <HeaderNavLink href='/portfolio'>Portfolio</HeaderNavLink>
-                <HeaderNavLink href='/contact'>Contact</HeaderNavLink>
               </HeaderNav>
               <HeaderTitle>Dennis Skoko</HeaderTitle>
               <HeaderNav>
