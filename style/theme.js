@@ -59,9 +59,9 @@ const theme = {
   spacing: {
     xs: '.375em',
     sm: '.5em',
-    md: '1em',
-    lg: '2em',
-    xl: '3em'
+    md: '1.5em',
+    lg: '3em',
+    xl: '5em'
   },
 
   transition: {
