@@ -2,12 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { hideVisually } from 'polished'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import HeaderNavLink from './HeaderNavLink'
-
-library.add(faGithub, faLinkedin)
+import Icon from './Icon'
 
 const StyledHeaderNavLink = styled(HeaderNavLink)`
   padding: ${({ theme }) => theme.spacing.sm};
@@ -21,7 +17,7 @@ const SrOnly = styled.span`
 function HeaderNavLinkSocial ({ icon, text, ...props }) {
   return (
     <StyledHeaderNavLink {...props} target='_blank'>
-      <FontAwesomeIcon icon={icon} />
+      <Icon icon={icon} />
       <SrOnly>{text}</SrOnly>
     </StyledHeaderNavLink>
   )
