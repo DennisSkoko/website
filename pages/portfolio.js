@@ -1,8 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
-import Container from '../components/Container'
-import Heading from '../components/Heading'
-import Text from '../components/Text'
+import Container from '../ui/Container'
+import Heading from '../ui/Heading'
+import Text from '../ui/Text'
 
 function Portfolio () {
   return (

@@ -1,12 +1,12 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-import Header from '../components/Header'
-import HeaderTitle from '../components/HeaderTitle'
-import HeaderNav from '../components/HeaderNav'
-import HeaderNavLink from '../components/HeaderNavLink'
-import HeaderNavLinkSocial from '../components/HeaderNavLinkSocial'
 import GlobalStyles from '../style/GlobalStyles'
 import ThemeProvider from '../style/ThemeProvider'
+import Header from '../ui/Header'
+import HeaderTitle from '../ui/HeaderTitle'
+import HeaderNav from '../ui/HeaderNav'
+import HeaderNavLink from '../ui/HeaderNavLink'
+import HeaderNavLinkSocial from '../ui/HeaderNavLinkSocial'
 
 class MyApp extends App {
   render () {

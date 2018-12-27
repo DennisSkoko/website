@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import Container from '../components/Container'
-import Heading from '../components/Heading'
-import Jumbotron from '../components/Jumbotron'
-import Link from '../components/Link'
-import Text from '../components/Text'
+import Container from '../ui/Container'
+import Heading from '../ui/Heading'
+import Jumbotron from '../ui/Jumbotron'
+import Link from '../ui/Link'
+import Text from '../ui/Text'
 
 function Index () {
   return (
