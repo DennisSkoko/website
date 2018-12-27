@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import MyWork from '../components/MyWork'
 import Container from '../ui/Container'
 import Heading from '../ui/Heading'
 import Jumbotron from '../ui/Jumbotron'
@@ -27,6 +28,7 @@ function Index () {
               {' '}or my <Link href='/portfolio'>portfolio</Link>.
             </Text>
           </Jumbotron>
+          <MyWork />
         </main>
       </Container>
     </>

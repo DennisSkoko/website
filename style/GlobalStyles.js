@@ -10,6 +10,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${({ theme }) => theme.font.baseSize};
     background-color: ${({ theme }) => theme.color.white.base}
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `
 
 export default GlobalStyles

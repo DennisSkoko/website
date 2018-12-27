@@ -68,6 +68,11 @@ const theme = {
     quick: '150ms',
     normal: '250ms',
     slow: '450ms'
+  },
+
+  icon: {
+    md: { size: '1.5rem' },
+    lg: { size: '3.5rem' }
   }
 }
 

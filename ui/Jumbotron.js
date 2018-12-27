@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Container from './Container'
 
 const StyledSection = styled.section`
-  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
+  margin: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
 `
 
 function Jumbotron ({ children }) {
