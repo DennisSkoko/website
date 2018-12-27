@@ -8,7 +8,8 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: ${({ theme }) => theme.font.baseSize};
-    background-color: ${({ theme }) => theme.color.white.base}
+    background-color: ${({ theme }) => theme.color.white.base};
+    scrollbar-width: thin;
   }
 
   * {
