@@ -8,6 +8,7 @@ const Text = styled.p`
   text-align: ${({ centered }) => centered ? 'center' : 'left'};
   margin-top: ${({ marginTop }) => marginTop ? '1em' : '0'};
   margin-bottom: ${({ marginBottom }) => marginBottom ? '1em' : '0'};
+  line-height: ${({ theme }) => theme.font.baseLineHeight};
 `
 
 Text.propTypes = {

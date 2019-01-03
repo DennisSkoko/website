@@ -38,6 +38,7 @@ const theme = {
 
   font: {
     baseSize: '1.1rem',
+    baseLineHeight: '1.35',
 
     family: {
       title: '\'Caveat\', cursive',

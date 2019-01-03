@@ -8,6 +8,7 @@ const StyledHeader = styled.header`
   padding: ${({ theme }) => theme.spacing.md} 0;
   background-color: ${({ theme }) => theme.color.black.base};
   color: ${({ theme }) => theme.color.white.base};
+  line-height: ${({ theme }) => theme.font.baseLineHeight};
 `
 
 const StyledContainer = styled(Container)`
