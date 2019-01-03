@@ -6,7 +6,6 @@ const HeaderTitle = styled(Heading).attrs({ marginBottom: false })`
   width: 100%;
   left: 0;
   text-align: center;
-  font-size: ${({ theme }) => theme.font.h2.size};
   font-family: ${({ theme }) => theme.font.family.title};
   color: inherit;
 `
