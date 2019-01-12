@@ -25,10 +25,10 @@ const StyledText = styled(Text).attrs({ as: 'a', marginBottom: false })`
   }
 `
 
-function Link ({ children, ...props }) {
+function Link ({ children, target, ...props }) {
   return (
     <NextLink {...props} passHref>
-      <StyledText>
+      <StyledText target={target}>
         {children}
       </StyledText>
     </NextLink>
@@ -36,7 +36,12 @@ function Link ({ children, ...props }) {
 }
 
 Link.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  target: PropTypes.string
+}
+
+Link.defaultProps = {
+  target: null
 }
 
 export default Link

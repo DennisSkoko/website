@@ -9,13 +9,15 @@ function Welcome () {
     <Jumbotron>
       <Heading as='h2'>Welcome</Heading>
       <Text type='lead'>
-        My name is Dennis Skoko and I'm a full stack developer currently
-        focusing on JavaScript. If you want to know what kind of projects
-        I've been working on at my job then visit my
-        {' '}<Link href='/portfolio'>LinkedIn page</Link>,
-        if you are interested on what I do during my free time then check my
-        {' '}<Link href='/portfolio'>Github page</Link>
-        {' '}or my <Link href='/portfolio'>portfolio</Link>.
+        My name is Dennis Skoko and I'm a full stack developer. Right now my
+        focus is at front-end development, mainly with{' '}
+        <Link href='https://reactjs.org/' target='_blank'>React</Link>. But I love
+        learning other stuff all the time so chaning technologies is not a
+        problem for me. Right now I spend most of my focus on work but I
+        sometimes spend time on personal projects at home after work. I rarley
+        do freelancing but when I do it is mostly for family related people I do
+        it for. But it's not like doing freelancing for other people is not an
+        option, I would love to do some freelancing aside.
       </Text>
     </Jumbotron>
   )

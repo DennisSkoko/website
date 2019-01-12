@@ -13,8 +13,10 @@ function Portfolio () {
 
       <Container>
         <main>
-          <Heading marginTop centered>Portfolio</Heading>
-          <Text centered>Under development...</Text>
+          <Heading as='h2' marginTop centered>Portfolio</Heading>
+          <Text centered>
+            Right now this page is empty but content will come soon.
+          </Text>
         </main>
       </Container>
     </>
