@@ -17,8 +17,11 @@ class MyDocument extends Document {
 
   render () {
     return (
-      <html>
+      <html lang='en'>
         <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+          <meta name='keywords' content='Dennis Skoko,front-end developer,full-stack developer,react,freelancer,portfolio' />
+          <meta name='description' content='Dennis Skoko is a software developer and here you can find all of his work that he has been working on.' />
           <meta name='msapplication-TileColor' content='#000000' />
           <meta name='msapplication-config' content='/static/browserconfig.xml?v=3e8A78pMBA' />
           <meta name='theme-color' content='#000000' />
