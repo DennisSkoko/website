@@ -74,6 +74,12 @@ const theme = {
   icon: {
     md: { size: '1.5rem' },
     lg: { size: '3.5rem' }
+  },
+
+  breakpoint: {
+    sm: '576px',
+    md: '768px',
+    lg: '1024px'
   }
 }
 

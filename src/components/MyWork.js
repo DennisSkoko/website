@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useBreakpoint, { BREAKPOINT } from '../hooks/useBreakpoint'
 import Card from '../ui/Card'
 import CardIcon from '../ui/CardIcon'
 import Grid from '../ui/Grid'
@@ -9,12 +10,15 @@ import Section from '../ui/Section'
 import Text from '../ui/Text'
 
 function MyWork () {
+  const breakpoint = useBreakpoint()
+  const columnSize = breakpoint === BREAKPOINT.MEDIUM ? 3 : 1
+
   return (
     <Section>
       <Heading as='h2' centered>My work</Heading>
 
       <Grid columns={3}>
-        <GridColumn>
+        <GridColumn size={columnSize}>
           <Card
             as='a'
             href='https://www.linkedin.com/in/dennis-skoko/'
@@ -31,7 +35,7 @@ function MyWork () {
           </Card>
         </GridColumn>
 
-        <GridColumn>
+        <GridColumn size={columnSize}>
           <Card
             as='a'
             href='https://github.com/DennisSkoko/'
@@ -46,7 +50,7 @@ function MyWork () {
           </Card>
         </GridColumn>
 
-        <GridColumn>
+        <GridColumn size={columnSize}>
           <Card as={Link} to='/portfolio'>
             <CardIcon icon='suitcase' />
             <Text marginBottom={false}>
