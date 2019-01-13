@@ -33,7 +33,12 @@ HeaderNavLinkSocial.propTypes = {
         )
         .isRequired
     ])
-    .isRequired
+    .isRequired,
+  text: PropTypes.string
+}
+
+HeaderNavLinkSocial.defaultProps = {
+  text: ''
 }
 
 export default HeaderNavLinkSocial
