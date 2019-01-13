@@ -1,7 +1,0 @@
-{
-  "extends": [
-    "react-app",
-    "standard",
-    "standard-react"
-  ]
-}
