@@ -3,7 +3,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint --ignore-path .gitignore .",
+    "deploy": "sls deploy"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
@@ -25,7 +26,9 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.3",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "serverless": "^1.44.1",
+    "serverless-s3-sync": "^1.8.0"
   },
   "eslintConfig": {
     "extends": "react-app"
