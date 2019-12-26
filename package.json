@@ -1,0 +1,7 @@
+{
+  "name": "@ds-website/root",
+  "private": true,
+  "dependencies": {
+    "lerna": "^3.19.0"
+  }
+}
