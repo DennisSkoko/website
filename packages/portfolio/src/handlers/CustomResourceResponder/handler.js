@@ -1,75 +1,66 @@
 'use strict'
 
 const uuid = require('uuid/v4')
-const database = require('../../database')
-const util = require('../../util')
+const aws = require('../../aws')
 const CustomResource = require('../../CustomResource')
+const util = require('../../util')
+const validate = require('./validate')
 
-function validateResourceData(data) {
-  return ['title', 'description', 'url']
-    .filter(field => !data[field])
-    .map(field => `${field} is required`)
-}
+async function handler(event) {
+  const portfolioWork = {
+    stackId: event.StackId,
+    physicalResourceId: event.PhysicalResourceId || uuid(),
+    title: event.ResourceProperties.Title,
+    description: event.ResourceProperties.Description,
+    url: event.ResourceProperties.Url
+  }
 
-async function handler(rawEvent) {
+  const resource = new CustomResource({ request: util.toCamelCase(event) })
+
   try {
-    const event = util.toCamelCase(rawEvent)
-    const physicalResourceId = event.physicalResourceId || uuid()
-    const resource = new CustomResource({ request: event })
+    if (event.RequestType === 'Create' || event.RequestType === 'Update') {
+      const errors = validate(portfolioWork)
 
-    try {
-      switch (event.requestType) {
-        case CustomResource.RequestType.CREATE:
-        case CustomResource.RequestType.UPDATE: {
-          const errors = validateResourceData(event.resourceProperties)
+      if (errors.length) {
+        await resource.respond({
+          status: 'FAILED',
+          reason: errors
+            .map(({ field, message }) => `${field} ${message}`)
+            .join(' | ')
+        })
+      }
+    }
 
-          if (errors.length) {
-            await resource.respond({
-              status: CustomResource.Status.FAILED,
-              physicalResourceId,
-              reason: errors.join(', ')
-            })
-            return
+    const payload =
+      event.RequestType !== 'Delete'
+        ? portfolioWork
+        : {
+            stackId: portfolioWork.stackId,
+            physicalResourceId: portfolioWork.physicalResourceId
           }
 
-          await database.portfolio.put({
-            stackId: event.stackId,
-            physicalResourceId,
-            title: event.resourceProperties.title,
-            description: event.resourceProperties.description,
-            url: event.resourceProperties.url
-          })
-          break
-        }
-
-        case CustomResource.RequestType.DELETE:
-          await database.portfolio.remove({
-            stackId: event.stackId,
-            physicalResourceId
-          })
-          break
-
-        default:
-          throw new Error(`Unknown request type: ${event.requestType}`)
-      }
-
-      await resource.respond({
-        status: CustomResource.Status.SUCCESS,
-        physicalResourceId
+    await aws.sns.publish({
+      topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
+      message: JSON.stringify({
+        action: event.RequestType !== 'Delete' ? 'put' : 'remove',
+        payload
       })
-    } catch (error) {
-      console.error('Failed to sync the resource to database', { error })
+    })
 
-      await resource.respond({
-        status: CustomResource.Status.FAILED,
-        physicalResourceId,
-        reason: error.event
-      })
-    }
+    await resource.respond({
+      status: 'SUCCESS',
+      physicalResourceId: portfolioWork.physicalResourceId
+    })
   } catch (error) {
-    console.error('Unable to responds to the custom resource request', {
+    console.error('Failed to handle resource', {
       error,
-      event: JSON.stringify(rawEvent, null, 2)
+      event: JSON.stringify(event, null, 2)
+    })
+
+    await resource.respond({
+      status: 'FAILED',
+      physicalResourceId: portfolioWork.physicalResourceId,
+      reason: 'Failed internally when trying to handle resource'
     })
   }
 }
