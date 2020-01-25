@@ -93,14 +93,14 @@ describe('when giving a `Create` type event', () => {
     expect(aws.sns.publish).toHaveBeenCalledWith({
       topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
       message: JSON.stringify({
-        action: 'put',
-        payload: {
-          id: 'mock-uuid',
-          title: 'mock-title',
-          description: 'mock-desc',
-          url: 'mock-url'
-        }
-      })
+        id: 'mock-uuid',
+        title: 'mock-title',
+        description: 'mock-desc',
+        url: 'mock-url'
+      }),
+      messageAttributes: {
+        action: { dataType: 'String', stringValue: 'put' }
+      }
     })
   })
 
@@ -163,14 +163,14 @@ describe('when giving an `Update` type event', () => {
     expect(aws.sns.publish).toHaveBeenCalledWith({
       topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
       message: JSON.stringify({
-        action: 'put',
-        payload: {
-          id: 'mock-physical-resource-id',
-          title: 'mock-title',
-          description: 'mock-desc',
-          url: 'mock-url'
-        }
-      })
+        id: 'mock-physical-resource-id',
+        title: 'mock-title',
+        description: 'mock-desc',
+        url: 'mock-url'
+      }),
+      messageAttributes: {
+        action: { dataType: 'String', stringValue: 'put' }
+      }
     })
   })
 
@@ -213,12 +213,10 @@ describe('when giving a `Delete` type event', () => {
 
     expect(aws.sns.publish).toHaveBeenCalledWith({
       topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
-      message: JSON.stringify({
-        action: 'remove',
-        payload: {
-          id: 'mock-physical-resource-id'
-        }
-      })
+      message: JSON.stringify({ id: 'mock-physical-resource-id' }),
+      messageAttributes: {
+        action: { dataType: 'String', stringValue: 'remove' }
+      }
     })
   })
 

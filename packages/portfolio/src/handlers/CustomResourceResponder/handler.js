@@ -37,9 +37,15 @@ async function handler(event) {
       topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
       message: JSON.stringify(
         event.RequestType === 'Delete'
-          ? { action: 'remove', payload: pick(portfolioWork, 'id') }
-          : { action: 'put', payload: portfolioWork }
-      )
+          ? pick(portfolioWork, 'id')
+          : portfolioWork
+      ),
+      messageAttributes: {
+        action: {
+          dataType: 'String',
+          stringValue: event.RequestType === 'Delete' ? 'remove' : 'put'
+        }
+      }
     })
 
     await resource.respond({ status: 'SUCCESS', physicalResourceId })
