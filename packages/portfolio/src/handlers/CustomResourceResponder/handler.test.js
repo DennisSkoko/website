@@ -95,8 +95,7 @@ describe('when giving a `Create` type event', () => {
       message: JSON.stringify({
         action: 'put',
         payload: {
-          stackId: 'mock-stack-id',
-          physicalResourceId: 'mock-uuid',
+          id: 'mock-uuid',
           title: 'mock-title',
           description: 'mock-desc',
           url: 'mock-url'
@@ -166,8 +165,7 @@ describe('when giving an `Update` type event', () => {
       message: JSON.stringify({
         action: 'put',
         payload: {
-          stackId: 'mock-stack-id',
-          physicalResourceId: 'mock-physical-resource-id',
+          id: 'mock-physical-resource-id',
           title: 'mock-title',
           description: 'mock-desc',
           url: 'mock-url'
@@ -218,8 +216,7 @@ describe('when giving a `Delete` type event', () => {
       message: JSON.stringify({
         action: 'remove',
         payload: {
-          stackId: 'mock-stack-id',
-          physicalResourceId: 'mock-physical-resource-id'
+          id: 'mock-physical-resource-id'
         }
       })
     })

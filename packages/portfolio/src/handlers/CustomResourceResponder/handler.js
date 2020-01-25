@@ -1,15 +1,17 @@
 'use strict'
 
 const uuid = require('uuid/v4')
+const pick = require('lodash.pick')
 const aws = require('../../aws')
 const CustomResource = require('../../CustomResource')
 const util = require('../../util')
 const validate = require('./validate')
 
 async function handler(event) {
+  const physicalResourceId = event.PhysicalResourceId || uuid()
+
   const portfolioWork = {
-    stackId: event.StackId,
-    physicalResourceId: event.PhysicalResourceId || uuid(),
+    id: physicalResourceId,
     title: event.ResourceProperties.Title,
     description: event.ResourceProperties.Description,
     url: event.ResourceProperties.Url
@@ -31,26 +33,16 @@ async function handler(event) {
       }
     }
 
-    const payload =
-      event.RequestType !== 'Delete'
-        ? portfolioWork
-        : {
-            stackId: portfolioWork.stackId,
-            physicalResourceId: portfolioWork.physicalResourceId
-          }
-
     await aws.sns.publish({
       topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
-      message: JSON.stringify({
-        action: event.RequestType !== 'Delete' ? 'put' : 'remove',
-        payload
-      })
+      message: JSON.stringify(
+        event.RequestType === 'Delete'
+          ? { action: 'remove', payload: pick(portfolioWork, 'id') }
+          : { action: 'put', payload: portfolioWork }
+      )
     })
 
-    await resource.respond({
-      status: 'SUCCESS',
-      physicalResourceId: portfolioWork.physicalResourceId
-    })
+    await resource.respond({ status: 'SUCCESS', physicalResourceId })
   } catch (error) {
     console.error('Failed to handle resource', {
       error,
@@ -59,7 +51,7 @@ async function handler(event) {
 
     await resource.respond({
       status: 'FAILED',
-      physicalResourceId: portfolioWork.physicalResourceId,
+      physicalResourceId,
       reason: 'Failed internally when trying to handle resource'
     })
   }
