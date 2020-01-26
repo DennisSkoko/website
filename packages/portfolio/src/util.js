@@ -1,5 +1,11 @@
 'use strict'
 
+function isRegularObject(value) {
+  return typeof value === 'object'
+    && value !== null
+    && value.constructor.name === 'Object'
+}
+
 function mapObject(object, func) {
   const newObject = {}
 
@@ -18,17 +24,15 @@ function mapObject(object, func) {
 function toCamelCase(object) {
   return mapObject(object, ({ value, key }) => ({
     key: key.charAt(0).toLowerCase() + key.substring(1),
-    value:
-      typeof value === 'object' && value !== null ? toCamelCase(value) : value
+    value: isRegularObject(value) ? toCamelCase(value) : value
   }))
 }
 
 function toPascalCase(object) {
   return mapObject(object, ({ value, key }) => ({
     key: key.charAt(0).toUpperCase() + key.substring(1),
-    value:
-      typeof value === 'object' && value !== null ? toPascalCase(value) : value
+    value: isRegularObject(value) ? toPascalCase(value) : value
   }))
 }
 
-module.exports = { mapObject, toCamelCase, toPascalCase }
+module.exports = { isRegularObject, mapObject, toCamelCase, toPascalCase }

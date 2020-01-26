@@ -2,6 +2,55 @@
 
 const util = require('./util')
 
+describe('isRegularObject()', () => {
+  ;[
+    {
+      desc: 'buffer',
+      input: Buffer.from('foo'),
+      isObject: false
+    },
+    {
+      desc: 'string',
+      input: 'jer',
+      isObject: false
+    },
+    {
+      desc: 'Boolean',
+      input: new Boolean(false),
+      isObject: false
+    },
+    {
+      desc: 'function',
+      input: () => {},
+      isObject: false
+    },
+    {
+      desc: 'Error',
+      input: new Error(),
+      isObject: false
+    },
+    {
+      desc: 'Date',
+      input: new Date('2020-01-26'),
+      isObject: false
+    },
+    {
+      desc: 'object',
+      input: {},
+      isObject: true
+    },
+    {
+      desc: 'Object',
+      input: new Object({}),
+      isObject: true
+    }
+  ].forEach(({ desc, input, isObject }) => {
+    it(`returns ${isObject} when given a ${desc}`, () => {
+      expect(util.isRegularObject(input)).toBe(isObject)
+    })
+  })
+})
+
 describe('mapObject()', () => {
   it('calls given function with the value and key for each key', () => {
     const func = jest.fn(() => ({}))
@@ -68,6 +117,14 @@ describe('toCamelCase()', () => {
       }
     })
   })
+
+  it('only modifies regular objects', () => {
+    const result = util.toCamelCase({ Eor: Buffer.from('hui') })
+
+    expect(result).toEqual({
+      eor: Buffer.from('hui')
+    })
+  })
 })
 
 describe('toPascalCase()', () => {
@@ -97,6 +154,14 @@ describe('toPascalCase()', () => {
         BosPoi: 'toe',
         Seq: 23
       }
+    })
+  })
+
+  it('only modifies regular objects', () => {
+    const result = util.toPascalCase({ peo: Buffer.from('blu') })
+
+    expect(result).toEqual({
+      Peo: Buffer.from('blu')
     })
   })
 })
