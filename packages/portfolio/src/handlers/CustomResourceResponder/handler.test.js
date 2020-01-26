@@ -99,7 +99,7 @@ describe('when giving a `Create` type event', () => {
         url: 'mock-url'
       }),
       messageAttributes: {
-        action: { dataType: 'String', stringValue: 'put' }
+        action: { dataType: 'String', stringValue: 'PUT' }
       }
     })
   })
@@ -145,13 +145,16 @@ describe('when giving an `Update` type event', () => {
   })
 
   it('rejects the work if validation fails', async () => {
-    validate.mockReturnValueOnce([{ field: 'bil', message: 'sol' }])
+    validate.mockReturnValueOnce([
+      { field: 'bil', message: 'sol' },
+      { field: 'toe', message: 'osi' }
+    ])
 
     await act()
 
     expect(mockCustomResourceRespond).toHaveBeenCalledWith({
       status: 'FAILED',
-      reason: expect.stringContaining('bil sol')
+      reason: 'bil sol | toe osi'
     })
   })
 
@@ -169,7 +172,7 @@ describe('when giving an `Update` type event', () => {
         url: 'mock-url'
       }),
       messageAttributes: {
-        action: { dataType: 'String', stringValue: 'put' }
+        action: { dataType: 'String', stringValue: 'PUT' }
       }
     })
   })
@@ -215,7 +218,7 @@ describe('when giving a `Delete` type event', () => {
       topicArn: process.env.PORTFOLIO_WORK_TOPIC_ARN,
       message: JSON.stringify({ id: 'mock-physical-resource-id' }),
       messageAttributes: {
-        action: { dataType: 'String', stringValue: 'remove' }
+        action: { dataType: 'String', stringValue: 'REMOVE' }
       }
     })
   })

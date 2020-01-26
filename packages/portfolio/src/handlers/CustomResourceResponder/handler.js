@@ -43,7 +43,7 @@ async function handler(event) {
       messageAttributes: {
         action: {
           dataType: 'String',
-          stringValue: event.RequestType === 'Delete' ? 'remove' : 'put'
+          stringValue: event.RequestType === 'Delete' ? 'REMOVE' : 'PUT'
         }
       }
     })
