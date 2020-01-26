@@ -1,0 +1,98 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: Stores and manages all the work for the portfolio
+
+Resources:
+  CustomResourceResponder:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/CustomResourceResponder/index.handler
+      Runtime: nodejs12.x
+      CodeUri: '.'
+      Description: >
+        Validates the custom resource that has been created/updated/deleted.
+        If valid, a SNS topic will be notified and reponds back to AWS
+        Cloudformation.
+      Environment:
+        Variables:
+          PORTFOLIO_WORK_TOPIC_ARN: !Ref PortfolioWorkNotification
+      Policies:
+        - SNSPublishMessagePolicy:
+            TopicName: !GetAtt PortfolioWorkNotification.TopicName
+
+  PortfolioWorkNotification:
+    Type: AWS::SNS::Topic
+
+  PortfolioWorkPutManager:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/PortfolioWorkPutManager/index.handler
+      Runtime: nodejs12.x
+      CodeUri: '.'
+      Timeout: 10
+      MemorySize: 1600
+      Description: Creates/Updates portfolio work to the database and bucket
+      Environment:
+        Variables:
+          PORTFOLIO_WORK_TABLE_NAME: !Ref PortfolioWorkDatabase
+          PORTFOLIO_WORK_BUCKET_NAME: !Ref PortfolioWorkAssets
+          PORTFOLIO_WORK_BUCKET_URL: !GetAtt PortfolioWorkAssets.WebsiteURL
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PortfolioWorkDatabase
+        - S3CrudPolicy:
+            BucketName: !Ref PortfolioWorkAssets
+      Events:
+        SNS:
+          Type: SNS
+          Properties:
+            Topic: !Ref PortfolioWorkNotification
+            FilterPolicy:
+              Action: [PUT]
+
+  PortfolioWorkRemoveManager:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/PortfolioWorkRemoveManager/index.handler
+      Runtime: nodejs12.x
+      CodeUri: '.'
+      Description: Removes portfolio work from the database and bucket
+      Environment:
+        Variables:
+          PORTFOLIO_WORK_TABLE_NAME: !Ref PortfolioWorkDatabase
+          PORTFOLIO_WORK_BUCKET_NAME: !Ref PortfolioWorkAssets
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref PortfolioWorkDatabase
+        - S3CrudPolicy:
+            BucketName: !Ref PortfolioWorkAssets
+      Events:
+        SNS:
+          Type: SNS
+          Properties:
+            Topic: !Ref PortfolioWorkNotification
+            FilterPolicy:
+              Action: [REMOVE]
+
+  PortfolioWorkDatabase:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: Id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: Id
+          KeyType: HASH
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+
+  PortfolioWorkAssets:
+    Type: AWS::S3::Bucket
+
+Outputs:
+  ServiceToken:
+    Description: Service token used to create work to the portfolio
+    Value: !GetAtt CustomResourceResponder.Arn
