@@ -1,9 +1,11 @@
 'use strict'
 
 function isRegularObject(value) {
-  return typeof value === 'object'
-    && value !== null
-    && value.constructor.name === 'Object'
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    value.constructor.name === 'Object'
+  )
 }
 
 function mapObject(object, func) {

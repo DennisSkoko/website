@@ -15,11 +15,6 @@ describe('isRegularObject()', () => {
       isObject: false
     },
     {
-      desc: 'Boolean',
-      input: new Boolean(false),
-      isObject: false
-    },
-    {
       desc: 'function',
       input: () => {},
       isObject: false
@@ -37,11 +32,6 @@ describe('isRegularObject()', () => {
     {
       desc: 'object',
       input: {},
-      isObject: true
-    },
-    {
-      desc: 'Object',
-      input: new Object({}),
       isObject: true
     }
   ].forEach(({ desc, input, isObject }) => {
