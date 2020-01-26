@@ -105,3 +105,58 @@ it('handles errors from writing to database', async () => {
     }
   )
 })
+
+it('handles all records', async () => {
+  await handler({
+    Records: [
+      {
+        Sns: {
+          Message: JSON.stringify({
+            id: 'mock-id-1',
+            description: 'mock-desc-1',
+            title: 'mock-title-1',
+            url: 'mock-url-1'
+          })
+        }
+      },
+      {
+        Sns: {
+          Message: JSON.stringify({
+            id: 'mock-id-2',
+            description: 'mock-desc-2',
+            title: 'mock-title-2',
+            url: 'mock-url-2'
+          })
+        }
+      }
+    ]
+  })
+
+  expect(aws.s3.putObject).toHaveBeenCalledTimes(2)
+  expect(aws.s3.putObject).toHaveBeenCalledWith(
+    expect.objectContaining({
+      key: expect.stringContaining('mock-id-1')
+    })
+  )
+  expect(aws.s3.putObject).toHaveBeenCalledWith(
+    expect.objectContaining({
+      key: expect.stringContaining('mock-id-2')
+    })
+  )
+
+  expect(aws.dynamodb.put).toHaveBeenCalledTimes(2)
+  expect(aws.dynamodb.put).toHaveBeenCalledWith(
+    expect.objectContaining({
+      item: expect.objectContaining({
+        id: expect.stringContaining('mock-id-1')
+      })
+    })
+  )
+  expect(aws.dynamodb.put).toHaveBeenCalledWith(
+    expect.objectContaining({
+      item: expect.objectContaining({
+        id: expect.stringContaining('mock-id-2')
+      })
+    })
+  )
+})
