@@ -13,12 +13,20 @@ const aws = {
   s3: {
     putObject(params) {
       return s3.putObject(util.toPascalCase(params)).promise()
+    },
+
+    deleteObject(params) {
+      return s3.deleteObject(util.toPascalCase(params)).promise()
     }
   },
 
   dynamodb: {
     put(params) {
       return dynamodb.put(util.toPascalCase(params)).promise()
+    },
+
+    delete(params) {
+      return dynamodb.delete(util.toPascalCase(params)).promise()
     }
   },
 
