@@ -1,0 +1,39 @@
+:root {
+  --color-primary: #fe7a36;
+  --color-secondary: #3652ad;
+  --color-accent: #280274;
+  --color-background: #000;
+  --color-text: #fff;
+  --color-text-muted: #555;
+
+  --font-family-header: "Kode Mono", monospace;
+  --font-family-text: "Open Sans", sans-serif;
+
+  --content-max-width: 64rem;
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: 1.25rem;
+  font-family: var(--font-family-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-header);
+  color: var(--color-primary);
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+}
+
+p:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}

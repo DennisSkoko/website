@@ -1,0 +1,61 @@
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 3em 1em 15em;
+  display: flex;
+  flex-direction: column;
+  gap: 8em;
+}
+
+.header {
+  text-align: center;
+}
+
+.header a {
+  color: var(--color-text);
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-size: 100% .2em;
+  background-position: 0 88%;
+  background-image: linear-gradient(145deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  transition: background-size .25s;
+}
+
+.header a:hover, .header a:focus {
+  background-size: 100% 100%;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 1em;
+}
+
+.section > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: .75em;
+}
+
+.project app-timespan {
+  display: block;
+  margin-top: .5em;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25em;
+}
+
+.tags span {
+  background-color: var(--color-secondary);
+  padding: .25em .5em;
+  border-radius: 1em;
+}

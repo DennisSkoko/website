@@ -1,0 +1,39 @@
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  max-width: var(--content-max-width);
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+.content {
+  font-size: 1.25em;
+  border-left: .35em solid var(--color-secondary);
+  padding: 1em;
+  flex: 1 1 60%;
+}
+
+.arrow {
+  -webkit-mask: url('./icons/arrow.svg') no-repeat center;
+  mask: url('./icons/arrow.svg') no-repeat center;
+  background-color: var(--color-text-muted);
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  bottom: 2em;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  animation: 1s ease infinite arrow alternate;
+  cursor: pointer;
+}
+
+@keyframes arrow {
+  from {
+    transform: translateY(0em);
+  }
+  to {
+    transform: translateY(-1em);
+  }
+}
