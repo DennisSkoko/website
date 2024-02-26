@@ -8,11 +8,6 @@ export class Journey extends HTMLElement {
       <div class=${classes.container}>
         <div class=${classes.header}>
           <h1>Journey</h1>
-
-          <p>
-            <a href="#" @click=${this.#handleClick}>Click here</a> if you would like to go through the Journey from the
-            beginning instead.
-          </p>
         </div>
 
         <section class=${classes.section}>
@@ -29,19 +24,17 @@ export class Journey extends HTMLElement {
           </div>
 
           <div class=${classes.content}>
-            <div>
-              <p>
-                Dennis helped develop a platform where companies could report their data, also
-                collect their suppliers data by sending questionnaires and visualise their data in
-                graphs.
-              </p>
+            <p>
+              Dennis helped develop a platform where companies could report their data, also
+              collect their suppliers data by sending questionnaires and visualise their data in
+              graphs.
+            </p>
 
-              <p>
-                Starting as a front-end developer, Dennis acquired C# skills to support backend
-                operations. As the project and company grew, he transitioned to infrastructure,
-                contributing to the team's migration to a self-hosted Kubernetes environment
-              </p>
-            </div>
+            <p>
+              Starting as a front-end developer, Dennis acquired C# skills to support backend
+              operations. As the project and company grew, he transitioned to infrastructure,
+              contributing to the team's migration to a self-hosted Kubernetes environment
+            </p>
           </div>
         </section>
 
@@ -58,23 +51,27 @@ export class Journey extends HTMLElement {
           </div>
 
           <div class=${classes.content}>
-            <section class=${classes.project}>
-              <h3>Maryland</h3>
-              <app-timespan .from=${new Date(2021, 4)} .to=${new Date(2021, 4)}></app-timespan>
+            <p>
+              During his time at Cygni, Dennis contributed to three projects. The first involved
+              developing features for an internal Cygni project utilizing React and GraphQL for
+              both front-end and back-end tasks.
+            </p>
 
-              <p>
-                Implementing BankID authentication on a Wordpress website.
-              </p>
-            </section>
+            <p>
+              In the second project, he implemented BankID authentication for a WordPress platform
+              used by a company called
+              <a href="https://maryland.se" target="_blank" rel="noreferrer">Maryland</a>,
+              employing PHP for the back-end and JavaScript for the front-end.
+            </p>
 
-            <section class=${classes.project}>
-              <h3>Sony</h3>
-              <app-timespan .from=${new Date(2021, 5)} .to=${new Date(2021, 7)}></app-timespan>
-
-              <p>
-                Adding end-to-end tests to the project using Cypress.
-              </p>
-            </section>
+            <p>
+              Lastly, Dennis assisted
+              <a href="https://www.sonynetworkcom.com/nimway" target="_blank" rel="noreferrer">
+                Sony
+              </a>
+              by creating integration and end-to-end tests for their application, utilizing Cypress
+              for test automation and React for the front-end.
+            </p>
           </div>
         </section>
 
@@ -89,28 +86,19 @@ export class Journey extends HTMLElement {
             </div>
           </div>
 
-          <div id="first-job" class=${classes.content}>
-            <section>
-              <h3>IKEA</h3>
-              <app-timespan .from=${new Date(2018, 7)} .to=${new Date(2021, 1)}></app-timespan>
-
-              <p>
-                Dennis was part of a large project that was the IKEA kitchen planner. He started
-                out as a front-end developer, then learned working with AWS and Node.js to become
-                a fullstack developer.
-              </p>
-            </section>
+          <div class=${classes.content}>
+            <p>
+              Dennis was part of a large project that was the
+              <a href="https://kitchen.planner.ikea.com/se/sv/" target="_blank" rel="noreferrer">IKEA</a> kitchen
+              planner during the entire employment on Knowit. He started out as a front-end
+              developer, then learned working with AWS and Node.js to become a fullstack developer.
+            </p>
           </div>
         </section>
       </div>
     `
 
     render(template, this)
-  }
-
-  #handleClick = (event) => {
-    event.preventDefault()
-    this.querySelector('#first-job').scrollIntoView({ block: 'center', behavior: 'smooth' })
   }
 }
 
