@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: website
+
+spec:
+  selector:
+    matchLabels: &labels
+      app.kubernetes.io/name: website
+  template:
+    metadata:
+      labels: *labels
+    spec:
+      containers:
+        - name: website
+          image: registry.home.dennisskoko.com/website
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ['ALL']
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
