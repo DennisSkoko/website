@@ -49,5 +49,5 @@
 .tags span {
   background-color: var(--color-secondary);
   padding: .25em .5em;
-  border-radius: 1em;
+  border-radius: .2em;
 }
