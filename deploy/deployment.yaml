@@ -23,3 +23,9 @@ spec:
             runAsGroup: 1000
             seccompProfile:
               type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 50m
+              memory: 16Mi
+            limits:
+              memory: 16Mi
