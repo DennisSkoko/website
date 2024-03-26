@@ -66,9 +66,7 @@ export class Journey extends HTMLElement {
 
             <p>
               Lastly, Dennis assisted
-              <a href="https://www.sonynetworkcom.com/nimway" target="_blank" rel="noreferrer">
-                Sony
-              </a>
+              <a href="https://www.sonynetworkcom.com/nimway" target="_blank" rel="noreferrer">Sony</a>
               by creating integration and end-to-end tests for their application, utilizing Cypress
               for test automation and React for the front-end.
             </p>
